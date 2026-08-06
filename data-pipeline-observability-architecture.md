@@ -1,5 +1,7 @@
 # Kiến trúc tổng thể — Data Pipeline & Data Observability cho RAG
 
+![Overview](assets/overview.png)
+
 ## 1. Kiến trúc bám sát source code hiện tại
 
 ```mermaid
