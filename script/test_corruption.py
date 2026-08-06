@@ -47,17 +47,17 @@ def main():
     assert blank_sums > 0, "Không tạo được lỗi blank summary!"
     
     # 3. Kiểm tra Noise injection
-    noise_rows = df_corrupted["summary"].str.contains("GIBBERISH_NOISE_123", na=False).sum()
+    noise_rows = df_corrupted["summary"].str.contains("CORRUPTED_TOKEN", na=False).sum()
     print(f"   - Số dòng bị gieo ký tự nhiễu       : {noise_rows} dòng")
     assert noise_rows > 0, "Không tạo được lỗi noise injection!"
-    
-    # 4. Kiểm tra Truncate title / Blank title
-    blank_titles = (df_corrupted["title"].isna() | (df_corrupted["title"].astype(str).str.strip() == "")).sum()
-    print(f"   - Số dòng bị làm trống/cắt ngắn title: {blank_titles} dòng")
-    assert blank_titles > 0, "Không tạo được lỗi blank title!"
-    
+
+    # 4. Kiểm tra Truncate title
+    truncated_titles = (df_corrupted["title"].astype(str).str.len() <= 28).sum()
+    print(f"   - Số dòng bị cắt ngắn title          : {truncated_titles} dòng")
+    assert truncated_titles > 0, "Không tạo được lỗi truncate title!"
+
     # 5. Kiểm tra Stale published date
-    stale_rows = (df_corrupted["published"] == "2000-01-01").sum()
+    stale_rows = (df_corrupted["published"] == "2016-01-01").sum()
     print(f"   - Số dòng bị đổi ngày xuất bản cũ đi: {stale_rows} dòng")
     assert stale_rows > 0, "Không tạo được lỗi stale publication date!"
     
