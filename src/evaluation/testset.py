@@ -1,56 +1,97 @@
 from __future__ import annotations
 
+import ast
+from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
-from core.utils import write_json
-
-_MIN_DOCUMENTS = 3
-_MAX_SAMPLE_PAPERS = 6
+from core.utils import first_sentence, normalize_whitespace, write_json
 
 
-def _select_sample(df: pd.DataFrame) -> pd.DataFrame:
-    sample_size = min(_MAX_SAMPLE_PAPERS, len(df))
-    step = max(1, len(df) // sample_size)
-    indices = list(range(0, len(df), step))[:sample_size]
-    return df.iloc[indices]
+_REQUIRED_COLUMNS = {
+    "paper_id",
+    "title",
+    "summary",
+    "authors_joined",
+    "categories_joined",
+    "published",
+}
 
 
-def build_test_set(df: pd.DataFrame, output_path) -> list[dict[str, Any]]:
-    """Build a question/ground-truth evaluation set from the cleaned dataframe."""
-    if len(df) < _MIN_DOCUMENTS:
-        raise ValueError(f"Need at least {_MIN_DOCUMENTS} cleaned documents to build a test set, got {len(df)}.")
+def _as_text(value: Any) -> str:
+    if value is None or pd.isna(value):
+        return ""
+    return normalize_whitespace(str(value))
 
-    sample = _select_sample(df)
+
+def _joined_value(row: pd.Series, joined_column: str, list_column: str) -> str:
+    value = _as_text(row.get(joined_column))
+    if value:
+        return value
+
+    raw_value = row.get(list_column)
+    if isinstance(raw_value, (list, tuple)):
+        return ", ".join(_as_text(item) for item in raw_value if _as_text(item))
+    if isinstance(raw_value, str):
+        try:
+            parsed = ast.literal_eval(raw_value)
+        except (SyntaxError, ValueError):
+            return _as_text(raw_value)
+        if isinstance(parsed, (list, tuple)):
+            return ", ".join(_as_text(item) for item in parsed if _as_text(item))
+    return ""
+
+
+def build_test_set(df: pd.DataFrame, output_path: Path) -> list[dict[str, Any]]:
+    """Build a deterministic multi-type evaluation set from cleaned papers."""
+    missing_columns = sorted(_REQUIRED_COLUMNS - set(df.columns))
+    if missing_columns:
+        raise ValueError(f"Cannot build test set; missing columns: {', '.join(missing_columns)}")
+    if len(df) < 4:
+        raise ValueError("At least 4 cleaned documents are required to build a representative test set.")
+
+    candidates = df.copy()
+    candidates["paper_id"] = candidates["paper_id"].map(_as_text)
+    candidates["title"] = candidates["title"].map(_as_text)
+    candidates["summary"] = candidates["summary"].map(_as_text)
+    candidates = candidates[
+        candidates["paper_id"].ne("")
+        & candidates["title"].ne("")
+        & candidates["summary"].ne("")
+    ].drop_duplicates(subset=["paper_id"])
+    if len(candidates) < 4:
+        raise ValueError("At least 4 valid, unique cleaned documents are required to build the test set.")
+
+    # Evenly spaced rows make the set deterministic while covering the full cleaned corpus.
+    sample_size = min(6, len(candidates))
+    positions = [round(index * (len(candidates) - 1) / (sample_size - 1)) for index in range(sample_size)]
+    selected = candidates.iloc[positions]
+
     test_set: list[dict[str, Any]] = []
-    next_id = 1
-
-    def _add(question_type: str, question: str, ground_truth: str, doc_ids: list[str]) -> None:
-        nonlocal next_id
-        test_set.append(
-            {
-                "id": f"q{next_id}",
-                "question_type": question_type,
-                "question": question,
-                "ground_truth": ground_truth,
-                "ground_truth_doc_ids": doc_ids,
-            }
+    for sample_index, (_, row) in enumerate(selected.iterrows(), start=1):
+        paper_id = _as_text(row["paper_id"])
+        title = _as_text(row["title"])
+        summary = first_sentence(_as_text(row["summary"]))
+        authors = _joined_value(row, "authors_joined", "authors") or "No authors listed"
+        categories = _joined_value(row, "categories_joined", "categories") or "No categories listed"
+        published = _as_text(row["published"])
+        questions = (
+            ("summary", f'What is the main point of the paper "{title}"?', summary),
+            ("authors", f'Who are the authors of the paper "{title}"?', authors),
+            ("date", f'When was the paper "{title}" published?', published),
+            ("categories", f'What categories are associated with the paper "{title}"?', categories),
         )
-        next_id += 1
+        for question_type, question, ground_truth in questions:
+            test_set.append(
+                {
+                    "id": f"eval-{sample_index:02d}-{question_type}",
+                    "question_type": question_type,
+                    "question": question,
+                    "ground_truth": ground_truth,
+                    "ground_truth_doc_ids": [paper_id],
+                }
+            )
 
-    for _, row in sample.iterrows():
-        doc_ids = [row["paper_id"]]
-        title = row["title"]
-
-        _add("summary", f"What is the paper '{title}' about?", row["summary"], doc_ids)
-        _add("date", f"When was the paper '{title}' published?", row["published"], doc_ids)
-
-        if row["authors_joined"]:
-            _add("authors", f"Who authored the paper '{title}'?", row["authors_joined"], doc_ids)
-
-        if row["categories_joined"]:
-            _add("categories", f"What categories does the paper '{title}' belong to?", row["categories_joined"], doc_ids)
-
-    write_json(output_path, test_set)
+    write_json(Path(output_path), test_set)
     return test_set
