@@ -443,25 +443,6 @@
     "comment": "PeerJ Computer Science"
   },
   {
-    "paper_id": "10.64898/2026.04.23.26351098",
-    "title": "Large language models and retrieval augmented generation for complex clinical codelists: evaluating performance and assessing failure modes",
-    "summary": "Abstract Objectives Large language models (LLMs) have shown promise in creating clinical codelists for research purposes, a time-consuming task requiring expert domain knowledge. Here, we evaluate the performance and assess failure modes of a retrieval augmented generation (RAG) approach to creating clinical codelists for the large and complex medical terminology used by the Clinical Practice Research Datalink (CPRD). Materials &amp; Methods We set up a RAG system using a database of word embeddings of the medical terminology that we created using a general-purpose word embedding model (gemini-embedding). We developed 7 reference codelists presenting different challenges and tagged required and optional codes. We ran 168 evaluations (7 codelists, 2 different database subsets, 4 models, 3 epochs each). Scoring was based on the omission of required codes, and inclusion of irrelevant codes. We used model-grading (i.e., grading by another LLM with the reference codelists provided as context) to evaluate the output codelists (a score of 0% being all incorrect and 100% being all correct). Results We saw varying accuracy across models and codelists, with Gemini 3 Pro (Score 43%) generally performing better than Claude Sonnet 4.6 (36%), Gemini 3 Flash, and OpenAI GPT 5.2 performing worst (14%). Models performed better with shorter target codelists (e.g., Eosinophilic esophagitis with four codes, and Hidradenitis suppurativa with 14 codes). For example, all models consistently failed to produce a complete Wrist fracture codelist (with 214 required codes). We further present evaluation summaries, and failure mode evaluations produced by parsing LLM chat logs. Discussion Besides demonstrating that a single-shot RAG approach is currently not suitable for codelist generation, we demonstrate failure modes including hallucinations, retrieval failures and generation failures where retrieved codes are not used. Conclusions Our findings suggest that while RAG systems using current frontier LLMs may create correct clinical codelists in some cases, they still struggle with large and complex terminologies and codelists with a large number of codes. The failure mode we highlight can inform the creation of future workflows to avoid failures.",
-    "authors": [
-      "Julian Matthewman",
-      "Spiros Denaxas",
-      "Sin\u00e9ad M Langan",
-      "Jeffery Painter",
-      "Andrew Bate"
-    ],
-    "categories": [],
-    "primary_category": "unknown",
-    "published": "2026-04-24",
-    "updated": "2026-04-27T17:31:33Z",
-    "abs_url": "https://doi.org/10.64898/2026.04.23.26351098",
-    "pdf_url": "",
-    "comment": ""
-  },
-  {
     "paper_id": "10.1148/radiol.251581",
     "title": "Zero-shot Thoracic Oncologic History Generation for Radiologists Using Retrieval-augmented Large Language Model Pipeline",
     "summary": "A large language model pipeline automatically summarized oncologic histories with high efficiency, accuracy, and completeness; speed and performance varied depending on the model used (GPT-4o mini, o3-mini, GPT-5-mini [OpenAI]).",
@@ -481,6 +462,25 @@
     "abs_url": "https://doi.org/10.1148/radiol.251581",
     "pdf_url": "",
     "comment": "Radiology"
+  },
+  {
+    "paper_id": "10.64898/2026.04.23.26351098",
+    "title": "Large language models and retrieval augmented generation for complex clinical codelists: evaluating performance and assessing failure modes",
+    "summary": "Abstract Objectives Large language models (LLMs) have shown promise in creating clinical codelists for research purposes, a time-consuming task requiring expert domain knowledge. Here, we evaluate the performance and assess failure modes of a retrieval augmented generation (RAG) approach to creating clinical codelists for the large and complex medical terminology used by the Clinical Practice Research Datalink (CPRD). Materials &amp; Methods We set up a RAG system using a database of word embeddings of the medical terminology that we created using a general-purpose word embedding model (gemini-embedding). We developed 7 reference codelists presenting different challenges and tagged required and optional codes. We ran 168 evaluations (7 codelists, 2 different database subsets, 4 models, 3 epochs each). Scoring was based on the omission of required codes, and inclusion of irrelevant codes. We used model-grading (i.e., grading by another LLM with the reference codelists provided as context) to evaluate the output codelists (a score of 0% being all incorrect and 100% being all correct). Results We saw varying accuracy across models and codelists, with Gemini 3 Pro (Score 43%) generally performing better than Claude Sonnet 4.6 (36%), Gemini 3 Flash, and OpenAI GPT 5.2 performing worst (14%). Models performed better with shorter target codelists (e.g., Eosinophilic esophagitis with four codes, and Hidradenitis suppurativa with 14 codes). For example, all models consistently failed to produce a complete Wrist fracture codelist (with 214 required codes). We further present evaluation summaries, and failure mode evaluations produced by parsing LLM chat logs. Discussion Besides demonstrating that a single-shot RAG approach is currently not suitable for codelist generation, we demonstrate failure modes including hallucinations, retrieval failures and generation failures where retrieved codes are not used. Conclusions Our findings suggest that while RAG systems using current frontier LLMs may create correct clinical codelists in some cases, they still struggle with large and complex terminologies and codelists with a large number of codes. The failure mode we highlight can inform the creation of future workflows to avoid failures.",
+    "authors": [
+      "Julian Matthewman",
+      "Spiros Denaxas",
+      "Sin\u00e9ad M Langan",
+      "Jeffery Painter",
+      "Andrew Bate"
+    ],
+    "categories": [],
+    "primary_category": "unknown",
+    "published": "2026-04-24",
+    "updated": "2026-04-27T17:31:33Z",
+    "abs_url": "https://doi.org/10.64898/2026.04.23.26351098",
+    "pdf_url": "",
+    "comment": ""
   },
   {
     "paper_id": "10.36713/epra27876",
@@ -545,6 +545,26 @@
     "comment": "American Journal of Perinatology"
   },
   {
+    "paper_id": "10.2196/86073",
+    "title": "Evaluation of a Retrieval-Augmented Generation\u2013Based Large Language Model for Evidence-Based Herb and Supplement Information in Cancer Care",
+    "summary": "Abstract Our study describes the development and evaluation of a retrieval-augmented generation\u2013based large language model to improve the quality of responses to provider questions about herbs and dietary supplements.",
+    "authors": [
+      "Yen-Nien Hou",
+      "Jyothirmai Gubili",
+      "Pulkit Jain",
+      "Chun Sing Lam",
+      "Avijit Chatterjee",
+      "Jun J Mao"
+    ],
+    "categories": [],
+    "primary_category": "unknown",
+    "published": "2026-07-09",
+    "updated": "2026-08-01T00:43:47Z",
+    "abs_url": "https://doi.org/10.2196/86073",
+    "pdf_url": "",
+    "comment": "JMIR Cancer"
+  },
+  {
     "paper_id": "10.3389/fmed.2026.1817215",
     "title": "Low-energy small language models with retrieval-augmented generation can surpass large-model performance in rheumatology",
     "summary": "Background Large language models (LLMs) are increasingly explored for clinical decision support but are limited by high computational and energy demands. Smaller language models (SLMs), particularly when combined with retrieval-augmented generation (RAG), may offer a more sustainable alternative. Rheumatology, characterized by diagnostic complexity and guideline-driven management, represents a suitable test domain. Methods Five state-of-the-art language models (GPT-4o, Mixtral-8 \u00d7 7b-32768, Llama-3.1-Nemotron-70b-Instruct, Qwen-Turbo 2.5, Claude-3.5-Sonnet) were evaluated regarding their suitability for clinical decision support using ten standardized, anonymized rheumatology cases. Models were assessed with and without RAG, and with or without a predefined diagnosis. Diagnostic and therapeutic accuracy were quantified using F1 scores. Factual consistency and relevance were assessed using the Retrieval-Augmented Generation Assessment Score (RAGAS). Results Mixtral-8 \u00d7 7b-32768 with RAG achieved the highest diagnostic (72%) and therapeutic (73%) F1 scores. Nemotron-70b showed strong diagnostic performance without RAG (71%), while Qwen-Turbo performed well in therapeutic recommendations without retrieval (72%). The highest RAGAS score was observed for Mixtral with RAG (81%). Performance regarding clinical decision support varied substantially across models and configurations. Conclusion SLMs combined with RAG can match or exceed the performance of larger LLMs for clinical decision support while requiring significantly fewer computational resources. Despite promising results, clinically relevant errors persisted across all models, underscoring the need for expert oversight and further real-world validation.",
@@ -564,26 +584,6 @@
     "abs_url": "https://doi.org/10.3389/fmed.2026.1817215",
     "pdf_url": "",
     "comment": "Frontiers in Medicine"
-  },
-  {
-    "paper_id": "10.2196/86073",
-    "title": "Evaluation of a Retrieval-Augmented Generation\u2013Based Large Language Model for Evidence-Based Herb and Supplement Information in Cancer Care",
-    "summary": "Abstract Our study describes the development and evaluation of a retrieval-augmented generation\u2013based large language model to improve the quality of responses to provider questions about herbs and dietary supplements.",
-    "authors": [
-      "Yen-Nien Hou",
-      "Jyothirmai Gubili",
-      "Pulkit Jain",
-      "Chun Sing Lam",
-      "Avijit Chatterjee",
-      "Jun J Mao"
-    ],
-    "categories": [],
-    "primary_category": "unknown",
-    "published": "2026-07-09",
-    "updated": "2026-08-01T00:43:47Z",
-    "abs_url": "https://doi.org/10.2196/86073",
-    "pdf_url": "",
-    "comment": "JMIR Cancer"
   },
   {
     "paper_id": "10.36713/epra26155",

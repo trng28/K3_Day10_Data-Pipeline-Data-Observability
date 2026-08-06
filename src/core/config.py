@@ -31,6 +31,8 @@ class Paths:
     quality_dir: Path
     gx_dir: Path
     freshness_report: Path
+    corrupted_freshness_report: Path
+    repaired_freshness_report: Path
     baseline_report: Path
     corruption_log: Path
     corrupted_metrics: Path
@@ -64,13 +66,18 @@ class Settings:
     freshness_threshold_days: int
     refresh_source: bool
     refresh_test_set: bool
+    corruption_drop_rate: float
+    corruption_blank_rate: float
+    corruption_noise_rate: float
+    corruption_stale_rate: float
+    corruption_duplicate_rate: float
     paths: Paths
 
 
 def load_settings(project_dir: Path | None = None) -> Settings:
     root = (project_dir or Path(__file__).resolve().parents[2]).resolve()
     workspace = root.parent
-    freshness_threshold_days = 180
+    freshness_threshold_days = int(os.getenv("FRESHNESS_THRESHOLD_DAYS", "180"))
     source_from_date = (datetime.now(UTC).date() - timedelta(days=freshness_threshold_days)).isoformat()
 
     load_dotenv(workspace / ".env")
@@ -99,6 +106,8 @@ def load_settings(project_dir: Path | None = None) -> Settings:
         quality_dir=data_dir / "quality",
         gx_dir=data_dir / "quality" / "gx",
         freshness_report=data_dir / "quality" / "freshness_report.json",
+        corrupted_freshness_report=data_dir / "quality" / "corrupted_freshness.json",
+        repaired_freshness_report=data_dir / "quality" / "repaired_freshness.json",
         baseline_report=data_dir / "reports" / "phase1_report.md",
         corruption_log=data_dir / "results" / "corruption_log.json",
         corrupted_metrics=data_dir / "results" / "corrupted_metrics.json",
@@ -119,18 +128,23 @@ def load_settings(project_dir: Path | None = None) -> Settings:
         ollama_base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
         custom_llm_api_key=os.getenv("CUSTOM_LLM_API_KEY"),
         custom_llm_base_url=os.getenv("CUSTOM_LLM_BASE_URL"),
-        embedding_model="sentence-transformers/all-MiniLM-L6-v2",
+        embedding_model=os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"),
         baseline_collection_name="papers-baseline",
         corrupted_collection_name="papers-corrupted",
         repaired_collection_name="papers-repaired",
         source_api="Crossref REST API",
-        source_query="agentic retrieval augmented generation large language model",
+        source_query=os.getenv("SOURCE_QUERY", "agentic retrieval augmented generation large language model"),
         source_filter=f"from-pub-date:{source_from_date},has-abstract:true",
-        max_results=100,
-        top_k=4,
+        max_results=int(os.getenv("MAX_RESULTS", "100")),
+        top_k=int(os.getenv("TOP_K", "4")),
         freshness_threshold_days=freshness_threshold_days,
         refresh_source=os.getenv("REFRESH_SOURCE", "").lower() in {"1", "true", "yes"},
         refresh_test_set=os.getenv("REFRESH_TEST_SET", "").lower() in {"1", "true", "yes"},
+        corruption_drop_rate=float(os.getenv("CORRUPTION_DROP_RATE", "0.10")),
+        corruption_blank_rate=float(os.getenv("CORRUPTION_BLANK_RATE", "0.12")),
+        corruption_noise_rate=float(os.getenv("CORRUPTION_NOISE_RATE", "0.12")),
+        corruption_stale_rate=float(os.getenv("CORRUPTION_STALE_RATE", "0.10")),
+        corruption_duplicate_rate=float(os.getenv("CORRUPTION_DUPLICATE_RATE", "0.08")),
         paths=paths,
     )
 

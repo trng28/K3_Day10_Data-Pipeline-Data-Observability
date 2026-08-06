@@ -1,12 +1,12 @@
 {
   "report_name": "baseline",
-  "generated_at": "2026-08-06T03:04:59.948062+00:00",
-  "row_count": 24,
+  "generated_at": "2026-08-06T03:16:48.493441+00:00",
+  "row_count": 100,
   "checks": [
     {
       "check": "row_count_min",
       "passed": true,
-      "detail": "24 rows"
+      "detail": "100 rows"
     },
     {
       "check": "paper_id_not_null",
