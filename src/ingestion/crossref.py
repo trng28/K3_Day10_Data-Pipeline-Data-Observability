@@ -1,9 +1,20 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
+from datetime import date
 from pathlib import Path
+import re
+import time
+
+import requests
 
 from core.config import Settings
+from core.utils import normalize_whitespace, read_json, write_json
+
+CROSSREF_API_URL = "https://api.crossref.org/works"
+
+_TAG_RE = re.compile(r"<[^>]+>")
+_RETRY_STATUS_CODES = {429, 503}
 
 
 @dataclass(frozen=True)
@@ -21,31 +32,161 @@ class PaperRecord:
     comment: str
 
 
-def parse_crossref_payload(payload: dict) -> list[PaperRecord]:
-    """TODO(student): parse Crossref payload thanh list PaperRecord.
+def _strip_abstract_markup(value: str) -> str:
+    return normalize_whitespace(_TAG_RE.sub(" ", value))
 
-    Pseudo-code:
-    1. Duyet `payload["message"]["items"]`.
-    2. Lay DOI, title, abstract, authors, subject, dates, URLs.
-    3. Chuan hoa text va bo record khong hop le.
-    4. Tra ve list `PaperRecord`.
+
+def _date_from_parts(date_field: dict | None) -> str:
+    if not date_field:
+        return ""
+    parts = (date_field.get("date-parts") or [[]])[0]
+    if not parts:
+        return ""
+    year = parts[0]
+    month = parts[1] if len(parts) > 1 else 1
+    day = parts[2] if len(parts) > 2 else 1
+    try:
+        return date(int(year), int(month), int(day)).isoformat()
+    except (TypeError, ValueError):
+        return ""
+
+
+def _best_published_date(item: dict) -> str:
+    for key in ("published-print", "published-online", "issued", "created"):
+        value = _date_from_parts(item.get(key))
+        if value:
+            return value
+    return ""
+
+
+def _updated_date(item: dict) -> str:
+    indexed_at = (item.get("indexed") or {}).get("date-time")
+    if indexed_at:
+        return indexed_at
+    return _best_published_date(item)
+
+
+def _authors_from_item(item: dict) -> list[str]:
+    authors: list[str] = []
+    for author in item.get("author") or []:
+        name = author.get("name") or f"{author.get('given', '')} {author.get('family', '')}"
+        name = normalize_whitespace(name)
+        if name:
+            authors.append(name)
+    return authors
+
+
+def _categories_from_item(item: dict) -> list[str]:
+    categories: list[str] = []
+    for subject in item.get("subject") or []:
+        subject = normalize_whitespace(str(subject))
+        if subject and subject not in categories:
+            categories.append(subject)
+    return categories
+
+
+def _pdf_url_from_item(item: dict) -> str:
+    for link in item.get("link") or []:
+        if link.get("content-type") == "application/pdf":
+            return link.get("URL", "")
+    return ""
+
+
+def parse_crossref_payload(payload: dict) -> list[PaperRecord]:
+    """Parse a raw Crossref `/works` response into a list of `PaperRecord`.
+
+    Records missing a DOI, title, or resolvable publication date are dropped
+    as invalid; duplicate DOIs are collapsed to the first occurrence.
     """
-    raise NotImplementedError("Student task: implement Crossref payload parsing.")
+    items = (payload.get("message") or {}).get("items") or []
+    records: list[PaperRecord] = []
+    seen_ids: set[str] = set()
+
+    for item in items:
+        doi = item.get("DOI")
+        titles = item.get("title") or []
+        published = _best_published_date(item)
+        if not doi or not titles or not published:
+            continue
+
+        title = normalize_whitespace(titles[0])
+        if not title:
+            continue
+
+        paper_id = doi.strip().lower()
+        if paper_id in seen_ids:
+            continue
+        seen_ids.add(paper_id)
+
+        categories = _categories_from_item(item)
+        containers = item.get("container-title") or []
+        abstract = item.get("abstract") or ""
+
+        records.append(
+            PaperRecord(
+                paper_id=paper_id,
+                title=title,
+                summary=_strip_abstract_markup(abstract),
+                authors=_authors_from_item(item),
+                categories=categories,
+                primary_category=categories[0] if categories else "unknown",
+                published=published,
+                updated=_updated_date(item),
+                abs_url=item.get("URL") or f"https://doi.org/{doi}",
+                pdf_url=_pdf_url_from_item(item),
+                comment=normalize_whitespace(containers[0]) if containers else "",
+            )
+        )
+
+    return records
+
+
+def _get_with_retry(params: dict, max_attempts: int = 5, timeout: int = 30) -> requests.Response:
+    backoff_seconds = 1.0
+    last_error: Exception | None = None
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = requests.get(CROSSREF_API_URL, params=params, timeout=timeout)
+        except requests.RequestException as exc:
+            last_error = exc
+        else:
+            if response.status_code == 200:
+                return response
+            if response.status_code not in _RETRY_STATUS_CODES:
+                response.raise_for_status()
+            last_error = RuntimeError(f"Crossref returned HTTP {response.status_code}")
+
+        if attempt < max_attempts:
+            time.sleep(backoff_seconds)
+            backoff_seconds *= 2
+
+    raise RuntimeError(f"Crossref request failed after {max_attempts} attempts") from last_error
 
 
 def fetch_source_records(settings: Settings) -> list[PaperRecord]:
-    """TODO(student): goi source API, luu raw response, parse thanh records.
+    """Fetch works from the Crossref API, persist raw artifacts, and parse them.
 
-    Pseudo-code:
-    1. Tao params tu `settings.source_query`, `settings.source_filter`, `settings.max_results`.
-    2. Goi API voi retry cho cac status code nhu 429/503.
-    3. Luu raw response vao `settings.paths.raw_api_response`.
-    4. Parse payload bang `parse_crossref_payload`.
-    5. Luu records vao `settings.paths.raw_records_json`.
+    Saves the untouched API response to `settings.paths.raw_api_response` and
+    the parsed records to `settings.paths.raw_records_json` so the crawl can
+    be replayed from disk via `load_raw_records` without hitting the network.
     """
-    raise NotImplementedError("Student task: implement source fetching.")
+    params = {
+        "query": settings.source_query,
+        "filter": settings.source_filter,
+        "rows": settings.max_results,
+    }
+
+    response = _get_with_retry(params)
+    payload = response.json()
+    write_json(settings.paths.raw_api_response, payload)
+
+    records = parse_crossref_payload(payload)
+    write_json(settings.paths.raw_records_json, [asdict(record) for record in records])
+    return records
 
 
 def load_raw_records(path: Path) -> list[PaperRecord]:
-    """TODO(student): doc JSON snapshot va map thanh `PaperRecord`."""
-    raise NotImplementedError("Student task: implement raw record loading.")
+    """Load a `raw_records_json` snapshot back into `PaperRecord` instances."""
+    payload = read_json(path)
+    return [PaperRecord(**item) for item in payload]

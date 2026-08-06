@@ -1,0 +1,24 @@
+{
+  "backend": "chroma",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "persist_path": "D:\\vinuni-lab\\K3_Day10_Data-Pipeline-Data-Observability\\data\\chroma",
+  "collection_name": "papers-baseline",
+  "documents": [
+    {
+      "record_id": "10.1234/example::0",
+      "paper_id": "10.1234/example",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive Tasks",
+      "content": "Retrieval-Augmented Generation for Knowledge-Intensive Tasks. A survey of RAG techniques combining retrievers with generators.",
+      "metadata": {
+        "paper_id": "10.1234/example",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive Tasks",
+        "published": "2024-05-01",
+        "authors_joined": "Alice Author, Bob Writer",
+        "categories_joined": "cs.CL",
+        "summary": "A survey of RAG techniques combining retrievers with generators.",
+        "abs_url": "https://doi.org/10.1234/example",
+        "pdf_url": ""
+      }
+    }
+  ]
+}
