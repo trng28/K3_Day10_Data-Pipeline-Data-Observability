@@ -5,8 +5,8 @@
 - Source: Crossref REST API
 - Query: `agentic retrieval augmented generation large language model`
 - Filter: `from-pub-date:2026-02-07,has-abstract:true`
-- Raw records fetched: 24
-- Clean records: 24
+- Raw records fetched: 100
+- Clean records: 100
 
 ## Evaluation Metrics
 
@@ -19,7 +19,7 @@
 ## Data Quality
 
 - Overall: PASS (6/6 checks)
-- [PASS] `row_count_min`: 24 rows
+- [PASS] `row_count_min`: 100 rows
 - [PASS] `paper_id_not_null`: 0 blank paper_id values
 - [PASS] `paper_id_unique`: 0 duplicate paper_id values
 - [PASS] `title_not_null`: 0 blank title values
@@ -28,7 +28,7 @@
 
 ## Freshness
 
-- Latest published: 2026-08-01
+- Latest published: 2026-12-01
 - Oldest published: 2026-02-12
-- Stale rows: 0 / 24
+- Stale rows: 0 / 100
 - Is fresh: YES
