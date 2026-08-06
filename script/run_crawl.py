@@ -10,7 +10,7 @@ def main() -> None:
 
     print(f"Source: {settings.source_api}")
     print(f"Query: {settings.source_query!r} | Filter: {settings.source_filter!r} | Rows: {settings.max_results}")
-    print(f"Fetched {len(records)} valid records")
+    print(f"Loaded {len(records)} valid records (live source or cached fallback)")
     print(f"Raw API response saved to: {settings.paths.raw_api_response}")
     print(f"Raw records saved to: {settings.paths.raw_records_json}")
 

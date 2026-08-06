@@ -994,6 +994,22 @@
     "comment": "Sensors"
   },
   {
+    "paper_id": "10.53022/oarjet.2026.10.2.0033",
+    "title": "Mitigating hallucinations in large language models through enhanced retrieval-augmented generation: A Framework with FAISS and Lang Chain",
+    "summary": "Large Language Models (LLMs) have demonstrated remarkable capabilities in natural language understanding and generation, yet they remain susceptible to hallucinations\u2014generating factually incorrect or ungrounded information. This study presents an enhanced Retrieval-Augmented Generation (RAG) framework integrating FAISS vector database, Sentence-BERT embeddings, and Lang Chain orchestration to mitigate hallucinations and improve response accuracy. The proposed system implements a hybrid retrieval pipeline combining dense vector search with semantic reranking. Experimental evaluation on a curated technical knowledge corpus of 12,500 documents demonstrates significant improvements over baseline GPT-3.5: hallucination rate reduced from 31% to 9% (71% reduction), accuracy improved from 68.4% to 91.2%, and average relevance score increased from 0.72 to 0.94. Response latency remained practical at 2.3\u00b10.4 seconds. The framework achieves F1-score of 0.89, demonstrating robust performance across diverse query types. These results validate RAG as an effective approach for grounding LLM outputs in verifiable knowledge, with significant implications for deploying trustworthy AI systems in engineering and technical domains.",
+    "authors": [
+      "Preetjot Kaur",
+      "Roopali Garg"
+    ],
+    "categories": [],
+    "primary_category": "unknown",
+    "published": "2026-04-30",
+    "updated": "2026-05-05T10:11:46Z",
+    "abs_url": "https://doi.org/10.53022/oarjet.2026.10.2.0033",
+    "pdf_url": "",
+    "comment": "Open Access Research Journal of Engineering and Technology"
+  },
+  {
     "paper_id": "10.2196/preprints.104092",
     "title": "Augmenting Large Language Models for Clinical Decision-Making in Healthcare: A Systematic Review of Fine-Tuning, Retrieval-Augmented Generation, and Hybrid Methods (Preprint)",
     "summary": "BACKGROUND Large language models (LLMs) are increasingly evaluated for clinical decision support, but their practical value depends on post-training adaptation rather than raw benchmark performance. Fine-tuning, retrieval-augmented generation (RAG), and hybrid approaches represent the principal strategies for improving clinical reliability and relevance, yet evidence remains fragmented across specialties, model architectures, and evaluation designs. OBJECTIVE To synthesize evidence on fine-tuning, RAG, and hybrid post-training strategies for improving LLM clinical performance across healthcare tasks. METHODS We searched PubMed/MEDLINE, EMBASE, and Scopus (January 2018 \u2013 January 2026). Eligible studies evaluated transformer-based LLMs with post-training adaptation or retrieval augmentation applied to clinical datasets and reported quantitative performance outcomes. Risk of bias was assessed using PROBAST+AI. Results were synthesized descriptively by enhancement strategy. This review was prospectively registered (PROSPERO: CRD420261308522). RESULTS Of 1,890 records identified, 35 studies (published 2024\u20132026) met inclusion criteria across 12 countries and multiple clinical domains, including oncology, radiology, neurology, and emergency medicine. Three enhancement strategies were identified: SFT/PEFT (n=7, 20%), RAG (n=17, 49%), and hybrid pipelines combining fine-tuning, retrieval, and structured prompting (n=11, 31%). Fine-tuning was most effective for narrow, labeled classification tasks. External AUROC reached 0.912 for cancer detection and 0.938 for hepatocellular carcinoma from cell-free DNA signatures; macro-sensitivity was 0.918 for acute infarct detection from radiology reports; and AUC was 0.892 for major depressive disorder on UK Biobank data. RAG produced the largest gains when corpora were authoritative and aligned with the clinical task. Incorporating the ESC acute coronary syndrome guideline raised accuracy from 71.1% to 92.1% (GPT-4o) and from 78.9% to 94.7% (DeepSeek R1). A trauma-radiology chatbot improved injury grading accuracy from 48% to 87%, and a guideline-grounded urology pipeline reached 95.5% concordance versus 62.3% among junior clinicians. RAG reduced performance in two studies with noisy or poorly structured corpora, and reasoning-class models showed limited incremental benefit from retrieval. Hybrid systems achieved the strongest results for complex tasks. A stroke pipeline fine-tuned using LoRA reached 99.0% internal and 95.5%/79.1% external accuracy; a federated multimodal dermatology system achieved 90.2% diagnostic accuracy across 11 lesion types; and a multimodal osteonecrosis pipeline reached 96.0% expert-rated accuracy. Structured prompting (persona, chain-of-thought, task decomposition) shifted accuracy by 5\u201315 percentage points across studies. Only 10 studies (29%) reported external validation, and 24 (69%) lacked formal safety moderation. CONCLUSIONS Post-training adaptation and retrieval augmentation improved clinical LLM performance across diverse tasks. Strategy-task alignment, corpus quality, and prompt design were primary determinants of benefit. Evidence remains predominantly retrospective with limited external validation. Future studies should prioritize prospective, clinically embedded evaluations incorporating safety and fairness reporting.",
@@ -1050,22 +1066,6 @@
     "abs_url": "https://doi.org/10.3390/diagnostics16152456",
     "pdf_url": "",
     "comment": "Diagnostics"
-  },
-  {
-    "paper_id": "10.53022/oarjet.2026.10.2.0033",
-    "title": "Mitigating hallucinations in large language models through enhanced retrieval-augmented generation: A Framework with FAISS and Lang Chain",
-    "summary": "Large Language Models (LLMs) have demonstrated remarkable capabilities in natural language understanding and generation, yet they remain susceptible to hallucinations\u2014generating factually incorrect or ungrounded information. This study presents an enhanced Retrieval-Augmented Generation (RAG) framework integrating FAISS vector database, Sentence-BERT embeddings, and Lang Chain orchestration to mitigate hallucinations and improve response accuracy. The proposed system implements a hybrid retrieval pipeline combining dense vector search with semantic reranking. Experimental evaluation on a curated technical knowledge corpus of 12,500 documents demonstrates significant improvements over baseline GPT-3.5: hallucination rate reduced from 31% to 9% (71% reduction), accuracy improved from 68.4% to 91.2%, and average relevance score increased from 0.72 to 0.94. Response latency remained practical at 2.3\u00b10.4 seconds. The framework achieves F1-score of 0.89, demonstrating robust performance across diverse query types. These results validate RAG as an effective approach for grounding LLM outputs in verifiable knowledge, with significant implications for deploying trustworthy AI systems in engineering and technical domains.",
-    "authors": [
-      "Preetjot Kaur",
-      "Roopali Garg"
-    ],
-    "categories": [],
-    "primary_category": "unknown",
-    "published": "2026-04-30",
-    "updated": "2026-05-05T10:11:46Z",
-    "abs_url": "https://doi.org/10.53022/oarjet.2026.10.2.0033",
-    "pdf_url": "",
-    "comment": "Open Access Research Journal of Engineering and Technology"
   },
   {
     "paper_id": "10.3390/s26113602",

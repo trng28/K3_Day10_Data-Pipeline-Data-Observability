@@ -1,60 +1,28 @@
-# Data Corruption and Recovery Analysis Report
+# Corruption and Repair Report
 
-This report compares the performance and quality of the RAG pipeline across three distinct states:
-1. **Baseline**: The pipeline running on clean, normalized dataset.
-2. **Corrupted**: The pipeline running on dataset injected with multiple types of data errors.
-3. **Repaired**: The pipeline running on dataset restored automatically from the original raw snapshot.
+## Evaluation Comparison
 
-## 🚦 Performance Comparison Metrics
+| Metric | Baseline | Corrupted | Delta vs baseline | Repaired | Delta vs baseline |
+|---|---:|---:|---:|---:|---:|
+| Samples | 18 | 18 | +0.0000 | 18 | +0.0000 |
+| Retrieval hit rate | 1.0000 | 0.6667 | -0.3333 | 1.0000 | +0.0000 |
+| Mean token F1 | 0.7554 | 0.2812 | -0.4742 | 0.7554 | +0.0000 |
+| Judge accuracy | 0.6667 | 0.2222 | -0.4444 | 0.6667 | +0.0000 |
+| Mean judge score | 3.6667 | 1.8889 | -1.7778 | 3.6667 | +0.0000 |
 
-| Metric | Baseline | Corrupted | Repaired | Recovery Rate |
-| :--- | :---: | :---: | :---: | :---: |
-| **Retrieval Hit Rate** | 1.0000 | 1.0000 | 1.0000 | 100% |
-| **Mean Token F1** | 0.7554 | 0.7554 | 0.7554 | 100% |
-| **Judge Accuracy** | 0.6667 | 0.6667 | 0.6667 | 100% |
-| **Mean Judge Score** | 3.9444 | 3.6667 | 3.6667 | Recovered |
+## Quality and Freshness Signals
 
----
+| Signal | Corrupted | Repaired |
+|---|---|---|
+| Data quality | FAIL | PASS |
+| Failed quality checks | ['paper_id_unique', 'summary_min_length', 'freshness_threshold'] | [] |
+| Freshness | FAIL | PASS |
+| Stale rows | 74 | 0 |
+| Invalid date rows | 0 | 0 |
+| Total rows | 130 | 100 |
 
-## 🔍 Data Quality Checks Status
+## Recovery Summary
 
-### 🔴 Corrupted Data Quality Checks
-- **Overall**: FAIL (2/6 checks)
-- [PASS] `row_count_min`: 99 rows
-- [PASS] `paper_id_not_null`: 0 blank paper_id values
-- [FAIL] `paper_id_unique`: 2 duplicate paper_id values
-- [FAIL] `title_not_null`: 2 blank title values
-- [FAIL] `summary_length`: 4 rows with summary shorter than 20 chars
-- [FAIL] `freshness`: 2 rows older than 180 days
-
-### 🟢 Repaired Data Quality Checks
-- **Overall**: PASS (6/6 checks)
-- [PASS] `row_count_min`: 100 rows
-- [PASS] `paper_id_not_null`: 0 blank paper_id values
-- [PASS] `paper_id_unique`: 0 duplicate paper_id values
-- [PASS] `title_not_null`: 0 blank title values
-- [PASS] `summary_length`: 0 rows with summary shorter than 20 chars
-- [PASS] `freshness`: 0 rows older than 180 days
-
----
-
-## 📅 Data Freshness Status
-
-### 🔴 Corrupted Freshness Report
-- **Is Fresh**: NO
-- **Latest Published**: 2026-08-04
-- **Oldest Published**: 2000-01-01
-- **Stale Rows**: 2 / 99
-
-### 🟢 Repaired Freshness Report
-- **Is Fresh**: YES
-- **Latest Published**: 2026-12-01
-- **Oldest Published**: 2026-02-12
-- **Stale Rows**: 0 / 100
-
----
-
-## 💡 Observations and Conclusions
-- **Data Quality Impact**: Injecting data errors (blank titles/summaries, duplicate rows, and stale publication dates) directly leads to failed data quality gates.
-- **RAG Performance Impact**: Corrupted summaries and missing fields cause a significant drop in retrieval hit rates and response F1 scores, as the semantic search index is filled with noise or empty records.
-- **Recovery Verification**: By automatically re-running the ingestion cleaning pipeline over the cached raw API responses, we can restore the data schema and completely recover RAG agent performance back to its baseline levels without manual correction.
+- Retrieval hit rate changed by -0.3333 after corruption and +0.0000 after repair.
+- Mean token F1 changed by -0.4742 after corruption and +0.0000 after repair.
+- Repaired data quality status: PASS; repaired freshness status: PASS.

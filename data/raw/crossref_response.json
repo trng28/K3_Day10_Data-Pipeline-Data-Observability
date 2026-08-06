@@ -4,7 +4,7 @@
   "message-version": "1.0.0",
   "message": {
     "facets": {},
-    "total-results": 100916,
+    "total-results": 100943,
     "items": [
       {
         "indexed": {
@@ -120,7 +120,7 @@
           "date-time": "2026-06-17T08:00:36Z",
           "timestamp": 1781683236000
         },
-        "score": 39.923973,
+        "score": 39.9238,
         "resource": {
           "primary": {
             "URL": "https://ieiap.ru/journal"
@@ -277,7 +277,7 @@
           "date-time": "2026-06-12T16:31:45Z",
           "timestamp": 1781281905000
         },
-        "score": 38.166218,
+        "score": 38.166306,
         "resource": {
           "primary": {
             "URL": "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177272838.89432844/v1"
@@ -442,7 +442,7 @@
           "date-time": "2026-07-17T01:44:05Z",
           "timestamp": 1784252645000
         },
-        "score": 37.595,
+        "score": 37.596207,
         "resource": {
           "primary": {
             "URL": "https://inatgi.net/index.php/jaiaa/article/view/806"
@@ -643,7 +643,7 @@
           "date-time": "2026-04-07T00:32:52Z",
           "timestamp": 1775521972000
         },
-        "score": 37.491245,
+        "score": 37.49131,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202604.0339/v1"
@@ -1059,7 +1059,7 @@
           "date-time": "2026-02-28T05:20:35Z",
           "timestamp": 1772256035000
         },
-        "score": 36.651073,
+        "score": 36.650936,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2076-3417/16/5/2244"
@@ -1204,7 +1204,7 @@
           "date-time": "2026-05-06T16:40:10Z",
           "timestamp": 1778085610000
         },
-        "score": 36.513252,
+        "score": 36.514122,
         "resource": {
           "primary": {
             "URL": "https://isjem.com/download/speculative-retrieval-augmented-generation-for-cost-efficient-large-language-model-inference/"
@@ -1366,7 +1366,7 @@
           "date-time": "2026-02-13T02:08:03Z",
           "timestamp": 1770948483000
         },
-        "score": 36.196114,
+        "score": 36.19712,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202602.0996/v1"
@@ -1838,7 +1838,7 @@
           "date-time": "2026-07-02T10:56:27Z",
           "timestamp": 1782989787000
         },
-        "score": 35.716923,
+        "score": 35.714993,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2075-5309/16/13/2637"
@@ -2000,7 +2000,7 @@
           "date-time": "2026-07-06T03:55:08Z",
           "timestamp": 1783310108000
         },
-        "score": 35.635853,
+        "score": 35.635483,
         "resource": {
           "primary": {
             "URL": "http://preprints.jmir.org/preprint/106157"
@@ -2171,7 +2171,7 @@
           "date-time": "2026-06-15T06:08:17Z",
           "timestamp": 1781503697000
         },
-        "score": 35.510155,
+        "score": 35.511456,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10012178/v1"
@@ -2652,7 +2652,7 @@
           "date-time": "2026-08-05T14:18:01Z",
           "timestamp": 1785939481000
         },
-        "score": 34.932404,
+        "score": 34.933296,
         "resource": {
           "primary": {
             "URL": "https://onepetro.org/SJ/article/doi/10.2118/234689-PA/801839/SafeRAG-A-Large-Language-Model-Based-Multistage"
@@ -2859,7 +2859,7 @@
           "date-time": "2026-07-04T20:37:12Z",
           "timestamp": 1783197432000
         },
-        "score": 34.66877,
+        "score": 34.6054,
         "resource": {
           "primary": {
             "URL": "https://www.ejournal.ummuba.ac.id/index.php/JUPTIK/article/view/4318"
@@ -3028,7 +3028,7 @@
           "date-time": "2026-07-10T14:51:37Z",
           "timestamp": 1783695097000
         },
-        "score": 34.47867,
+        "score": 34.479454,
         "resource": {
           "primary": {
             "URL": "https://hdl.handle.net/11681/50309"
@@ -3601,7 +3601,7 @@
           "date-time": "2026-07-13T14:44:27Z",
           "timestamp": 1783953867000
         },
-        "score": 34.356236,
+        "score": 34.354416,
         "resource": {
           "primary": {
             "URL": "https://link.springer.com/10.1007/s10278-026-02086-9"
@@ -3823,7 +3823,7 @@
           "date-time": "2026-03-06T11:10:27Z",
           "timestamp": 1772795427000
         },
-        "score": 34.27951,
+        "score": 34.280617,
         "resource": {
           "primary": {
             "URL": "https://www.scholarlyreview.org/article/158711-the-role-of-retrieval-augmented-generation-in-improving-factual-accuracy-for-medical-large-language-models"
@@ -4016,7 +4016,7 @@
           "date-time": "2026-02-26T14:41:27Z",
           "timestamp": 1772116887000
         },
-        "score": 34.165947,
+        "score": 34.16612,
         "resource": {
           "primary": {
             "URL": "https://jurnal.polbeng.ac.id/index.php/ISI/article/view/1484"
@@ -4286,7 +4286,7 @@
           "date-time": "2026-05-09T02:39:59Z",
           "timestamp": 1778294399000
         },
-        "score": 34.07715,
+        "score": 34.078396,
         "resource": {
           "primary": {
             "URL": "https://academic.oup.com/sleep/article/49/Supplement_1/A153/8673444"
@@ -4495,7 +4495,7 @@
           "date-time": "2026-07-10T18:10:19Z",
           "timestamp": 1783707019000
         },
-        "score": 34.042446,
+        "score": 34.043175,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10178277/v1"
@@ -4668,7 +4668,7 @@
           "date-time": "2026-06-02T16:06:31Z",
           "timestamp": 1780416391000
         },
-        "score": 33.934868,
+        "score": 33.934227,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-9882260/v1"
@@ -4779,7 +4779,7 @@
           "date-time": "2026-05-16T07:57:01Z",
           "timestamp": 1778918221000
         },
-        "score": 33.346157,
+        "score": 33.34707,
         "resource": {
           "primary": {
             "URL": "https://www.ijraset.com/best-journal/hybrid-graph-neural-network-and-large-language-"
@@ -4914,7 +4914,7 @@
           "date-time": "2026-06-01T07:10:33Z",
           "timestamp": 1780297833000
         },
-        "score": 33.183224,
+        "score": 33.183804,
         "resource": {
           "primary": {
             "URL": "https://tns.ewapub.com/article/view/34055"
@@ -5141,7 +5141,7 @@
           "date-time": "2026-05-06T13:17:58Z",
           "timestamp": 1778073478000
         },
-        "score": 33.105404,
+        "score": 33.10665,
         "resource": {
           "primary": {
             "URL": "https://journals.flvc.org/FLAIRS/article/view/141782"
@@ -5321,7 +5321,7 @@
           "date-time": "2026-05-22T03:59:47Z",
           "timestamp": 1779422387000
         },
-        "score": 33.01644,
+        "score": 33.017082,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-9770645/v1"
@@ -5749,7 +5749,7 @@
           "date-time": "2026-07-16T09:33:41Z",
           "timestamp": 1784194421000
         },
-        "score": 32.97366,
+        "score": 32.97491,
         "resource": {
           "primary": {
             "URL": "https://onlinelibrary.wiley.com/doi/10.1111/exsy.70341"
@@ -6281,7 +6281,7 @@
           "date-time": "2026-02-12T18:00:11Z",
           "timestamp": 1770919211000
         },
-        "score": 32.971622,
+        "score": 32.9723,
         "resource": {
           "primary": {
             "URL": "https://journals.lww.com/10.1097/HC9.0000000000000895"
@@ -7240,7 +7240,7 @@
           "date-time": "2026-03-04T08:23:32Z",
           "timestamp": 1772612612000
         },
-        "score": 32.82865,
+        "score": 32.82976,
         "resource": {
           "primary": {
             "URL": "https://peerj.com/articles/cs-3642"
@@ -7617,7 +7617,7 @@
           "date-time": "2026-06-16T13:49:07Z",
           "timestamp": 1781617747000
         },
-        "score": 32.312565,
+        "score": 32.313374,
         "resource": {
           "primary": {
             "URL": "http://pubs.rsna.org/doi/10.1148/radiol.251581"
@@ -7962,7 +7962,7 @@
           "date-time": "2026-04-27T16:31:31Z",
           "timestamp": 1777307491000
         },
-        "score": 32.302902,
+        "score": 32.304,
         "resource": {
           "primary": {
             "URL": "http://medrxiv.org/lookup/doi/10.64898/2026.04.23.26351098"
@@ -8080,7 +8080,7 @@
           "date-time": "2026-05-22T12:36:31Z",
           "timestamp": 1779453391000
         },
-        "score": 32.25654,
+        "score": 32.256527,
         "resource": {
           "primary": {
             "URL": "https://eprajournals.com/IJMR/article/20048"
@@ -8218,7 +8218,7 @@
           "date-time": "2026-06-12T14:11:06Z",
           "timestamp": 1781273466000
         },
-        "score": 31.990593,
+        "score": 31.986162,
         "resource": {
           "primary": {
             "URL": "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177219989.96070478/v1"
@@ -8361,7 +8361,7 @@
           "date-time": "2026-04-16T04:12:02Z",
           "timestamp": 1776312722000
         },
-        "score": 31.814295,
+        "score": 31.815086,
         "resource": {
           "primary": {
             "URL": "https://submissions.adroidjournals.com/index.php/ijaimd/article/view/233"
@@ -9306,7 +9306,7 @@
           "date-time": "2026-03-31T22:52:40Z",
           "timestamp": 1774997560000
         },
-        "score": 31.655743,
+        "score": 31.65635,
         "resource": {
           "primary": {
             "URL": "http://www.thieme-connect.de/DOI/DOI?10.1055/a-2838-5446"
@@ -9619,7 +9619,7 @@
           "date-time": "2026-07-31T22:25:38Z",
           "timestamp": 1785536738000
         },
-        "score": 31.644949,
+        "score": 31.645761,
         "resource": {
           "primary": {
             "URL": "https://cancer.jmir.org/2026/1/e86073"
@@ -10204,7 +10204,7 @@
           "date-time": "2026-05-08T04:32:18Z",
           "timestamp": 1778214738000
         },
-        "score": 31.631374,
+        "score": 31.632309,
         "resource": {
           "primary": {
             "URL": "https://www.frontiersin.org/articles/10.3389/fmed.2026.1817215/full"
@@ -10332,7 +10332,7 @@
           "date-time": "2026-02-18T19:42:44Z",
           "timestamp": 1771443764000
         },
-        "score": 31.583818,
+        "score": 31.584925,
         "resource": {
           "primary": {
             "URL": "https://eprajournals.com/IJSR/article/18939"
@@ -11210,7 +11210,7 @@
           "date-time": "2026-06-02T08:47:43Z",
           "timestamp": 1780390063000
         },
-        "score": 31.035143,
+        "score": 31.03598,
         "resource": {
           "primary": {
             "URL": "https://link.springer.com/10.1007/s10115-026-02792-4"
@@ -11476,7 +11476,7 @@
           "date-time": "2026-06-30T03:29:18Z",
           "timestamp": 1782790158000
         },
-        "score": 30.994463,
+        "score": 30.994709,
         "resource": {
           "primary": {
             "URL": "https://accscience.com/journal/AIH/articles/online_first/8099"
@@ -11654,7 +11654,7 @@
           "date-time": "2026-03-12T06:16:07Z",
           "timestamp": 1773296167000
         },
-        "score": 30.94044,
+        "score": 30.940496,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-9093774/v1"
@@ -11808,7 +11808,7 @@
           "date-time": "2026-07-06T12:27:18Z",
           "timestamp": 1783340838000
         },
-        "score": 30.545166,
+        "score": 30.545534,
         "resource": {
           "primary": {
             "URL": "https://impactfactor.org/PDF/IJDDT/16/IJDDT,Vol16,Issue62s,Article60.pdf"
@@ -12063,7 +12063,7 @@
           "date-time": "2026-07-08T15:28:39Z",
           "timestamp": 1783524519000
         },
-        "score": 30.27809,
+        "score": 30.279295,
         "resource": {
           "primary": {
             "URL": "https://www.ijisrt.com/contextiva-an-integrated-framework-based-on-agentic-retrieval-augmented-generation-and-model-context-protocol-for-aiassisted-software-development"
@@ -12183,7 +12183,7 @@
           "date-time": "2026-06-11T08:59:27Z",
           "timestamp": 1781168367000
         },
-        "score": 30.27584,
+        "score": 30.27688,
         "resource": {
           "primary": {
             "URL": "https://www.ijraset.com/best-journal/automation-in-healthcare-ai-calling-support-system"
@@ -12609,7 +12609,7 @@
           "date-time": "2026-06-15T04:11:30Z",
           "timestamp": 1781496690000
         },
-        "score": 30.219975,
+        "score": 30.219322,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2079-9292/15/12/2567"
@@ -12929,7 +12929,7 @@
           "date-time": "2026-06-30T22:37:46Z",
           "timestamp": 1782859066000
         },
-        "score": 30.198032,
+        "score": 30.198788,
         "resource": {
           "primary": {
             "URL": "https://www.nature.com/articles/s41746-026-02944-4"
@@ -13104,7 +13104,7 @@
           "date-time": "2026-06-05T11:43:17Z",
           "timestamp": 1780659797000
         },
-        "score": 30.17606,
+        "score": 30.176178,
         "resource": {
           "primary": {
             "URL": "https://www.ijraset.com/best-journal/retrievalaugemented-generation-based-ai-chatbot-for-academic-assistance"
@@ -13338,7 +13338,7 @@
           "date-time": "2026-07-28T11:23:16Z",
           "timestamp": 1785237796000
         },
-        "score": 30.095026,
+        "score": 30.095978,
         "resource": {
           "primary": {
             "URL": "https://abjournals.org/bjcnit/papers/volume-9/issue-2/a-retrieval-augmented-large-language-model-for-dynamic-personalization-in-intelligent-tutoring-systems/"
@@ -13521,7 +13521,7 @@
           "date-time": "2026-04-27T09:41:21Z",
           "timestamp": 1777282881000
         },
-        "score": 30.038616,
+        "score": 30.03944,
         "resource": {
           "primary": {
             "URL": "https://ijsrem.com/download/real-time-fact-checking-using-retrieval-augmented-generation-and-large-language-models/"
@@ -13656,7 +13656,7 @@
           "date-time": "2026-07-21T19:23:10Z",
           "timestamp": 1784661790000
         },
-        "score": 29.854624,
+        "score": 29.855782,
         "resource": {
           "primary": {
             "URL": "https://tns.ewapub.com/article/view/33701"
@@ -13888,7 +13888,7 @@
           "date-time": "2026-06-16T11:07:46Z",
           "timestamp": 1781608066000
         },
-        "score": 29.71305,
+        "score": 29.713951,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10042165/v1"
@@ -14061,7 +14061,7 @@
           "date-time": "2026-05-26T10:49:59Z",
           "timestamp": 1779792599000
         },
-        "score": 29.504911,
+        "score": 29.505783,
         "resource": {
           "primary": {
             "URL": "https://journals.mriindia.com/index.php/mjret/article/view/3023"
@@ -14274,7 +14274,7 @@
           "date-time": "2026-05-06T08:13:53Z",
           "timestamp": 1778055233000
         },
-        "score": 29.359505,
+        "score": 29.359365,
         "resource": {
           "primary": {
             "URL": "https://www.granthaalayahpublication.org/Arts-Journal/ShodhKosh/article/view/7928"
@@ -14829,7 +14829,7 @@
           "date-time": "2026-06-16T14:46:16Z",
           "timestamp": 1781621176000
         },
-        "score": 29.161106,
+        "score": 29.161772,
         "resource": {
           "primary": {
             "URL": "https://www.frontiersin.org/articles/10.3389/fpsyg.2026.1870870/full"
@@ -15552,7 +15552,7 @@
           "date-time": "2026-03-16T06:17:07Z",
           "timestamp": 1773641827000
         },
-        "score": 29.141912,
+        "score": 29.142813,
         "resource": {
           "primary": {
             "URL": "https://onlinelibrary.wiley.com/doi/10.1002/kpm.70060"
@@ -15942,7 +15942,7 @@
           "date-time": "2026-06-30T18:17:15Z",
           "timestamp": 1782843435000
         },
-        "score": 29.106382,
+        "score": 29.10701,
         "resource": {
           "primary": {
             "URL": "https://ai.jmir.org/2026/1/e83206"
@@ -16095,7 +16095,7 @@
           "date-time": "2026-07-24T00:11:41Z",
           "timestamp": 1784851901000
         },
-        "score": 29.062794,
+        "score": 29.03883,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202607.1383/v1"
@@ -16491,7 +16491,7 @@
           "date-time": "2026-07-06T14:38:12Z",
           "timestamp": 1783348692000
         },
-        "score": 28.987503,
+        "score": 28.988184,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2077-0383/15/13/5253"
@@ -17113,7 +17113,7 @@
           "date-time": "2026-05-26T13:46:13Z",
           "timestamp": 1779803173000
         },
-        "score": 28.68481,
+        "score": 28.68546,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2077-1312/14/11/983"
@@ -17711,7 +17711,7 @@
           "date-time": "2026-03-23T15:56:34Z",
           "timestamp": 1774281394000
         },
-        "score": 28.653252,
+        "score": 28.634659,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/1424-8220/26/6/2006"
@@ -17757,6 +17757,160 @@
               2026,
               3,
               23
+            ]
+          ]
+        }
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              5
+            ]
+          ],
+          "date-time": "2026-05-05T10:11:46Z",
+          "timestamp": 1777975906001,
+          "version": "3.51.4"
+        },
+        "reference-count": 0,
+        "publisher": "Open Access Research Journals Publication",
+        "issue": "2",
+        "content-domain": {
+          "domain": [
+            "www.oarjpublication.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Open Access Res. J. Eng. Technol."
+        ],
+        "abstract": "<jats:p>Large Language Models (LLMs) have demonstrated remarkable capabilities in natural language understanding and generation, yet they remain susceptible to hallucinations\u2014generating factually incorrect or ungrounded information. This study presents an enhanced Retrieval-Augmented Generation (RAG) framework integrating FAISS vector database, Sentence-BERT embeddings, and Lang Chain orchestration to mitigate hallucinations and improve response accuracy. The proposed system implements a hybrid retrieval pipeline combining dense vector search with semantic reranking. Experimental evaluation on a curated technical knowledge corpus of 12,500 documents demonstrates significant improvements over baseline GPT-3.5: hallucination rate reduced from 31% to 9% (71% reduction), accuracy improved from 68.4% to 91.2%, and average relevance score increased from 0.72 to 0.94. Response latency remained practical at 2.3\u00b10.4 seconds. The framework achieves F1-score of 0.89, demonstrating robust performance across diverse query types. These results validate RAG as an effective approach for grounding LLM outputs in verifiable knowledge, with significant implications for deploying trustworthy AI systems in engineering and technical domains.</jats:p>",
+        "DOI": "10.53022/oarjet.2026.10.2.0033",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              5
+            ]
+          ],
+          "date-time": "2026-05-05T09:22:46Z",
+          "timestamp": 1777972966000
+        },
+        "page": "058-063",
+        "update-policy": "https://doi.org/10.53022/oarj.ourcrossmarkpolicy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Mitigating hallucinations in large language models through enhanced retrieval-augmented generation: A Framework with FAISS and Lang Chain"
+        ],
+        "prefix": "10.53022",
+        "volume": "10",
+        "author": [
+          {
+            "given": "Preetjot",
+            "family": "Kaur",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Roopali",
+            "family": "Garg",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "member": "31040",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Open Access Research Journal of Engineering and Technology"
+        ],
+        "link": [
+          {
+            "URL": "https://oarjpublication.com/journals/oarjet/node/447",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              5
+            ]
+          ],
+          "date-time": "2026-05-05T09:22:46Z",
+          "timestamp": 1777972966000
+        },
+        "score": 28.609205,
+        "resource": {
+          "primary": {
+            "URL": "https://oarjpublication.com/journals/oarjet/node/447"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "2",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                4,
+                30
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.53022/oarjet.2026.10.2.0033",
+        "ISSN": [
+          "2783-0128"
+        ],
+        "issn-type": [
+          {
+            "value": "2783-0128",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              30
             ]
           ]
         }
@@ -18190,7 +18344,7 @@
           "date-time": "2026-06-09T09:00:37Z",
           "timestamp": 1780995637000
         },
-        "score": 28.606941,
+        "score": 28.60711,
         "resource": {
           "primary": {
             "URL": "http://preprints.jmir.org/preprint/104092"
@@ -18892,7 +19046,7 @@
           "date-time": "2026-07-22T14:24:17Z",
           "timestamp": 1784730257000
         },
-        "score": 28.51328,
+        "score": 28.513668,
         "resource": {
           "primary": {
             "URL": "https://link.springer.com/10.1007/s11044-026-10164-7"
@@ -19518,7 +19672,7 @@
           "date-time": "2026-08-04T08:25:26Z",
           "timestamp": 1785831926000
         },
-        "score": 28.501566,
+        "score": 28.502462,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/2075-4418/16/15/2456"
@@ -19564,160 +19718,6 @@
               2026,
               8,
               4
-            ]
-          ]
-        }
-      },
-      {
-        "indexed": {
-          "date-parts": [
-            [
-              2026,
-              5,
-              5
-            ]
-          ],
-          "date-time": "2026-05-05T10:11:46Z",
-          "timestamp": 1777975906001,
-          "version": "3.51.4"
-        },
-        "reference-count": 0,
-        "publisher": "Open Access Research Journals Publication",
-        "issue": "2",
-        "content-domain": {
-          "domain": [
-            "www.oarjpublication.com"
-          ],
-          "crossmark-restriction": false
-        },
-        "short-container-title": [
-          "Open Access Res. J. Eng. Technol."
-        ],
-        "abstract": "<jats:p>Large Language Models (LLMs) have demonstrated remarkable capabilities in natural language understanding and generation, yet they remain susceptible to hallucinations\u2014generating factually incorrect or ungrounded information. This study presents an enhanced Retrieval-Augmented Generation (RAG) framework integrating FAISS vector database, Sentence-BERT embeddings, and Lang Chain orchestration to mitigate hallucinations and improve response accuracy. The proposed system implements a hybrid retrieval pipeline combining dense vector search with semantic reranking. Experimental evaluation on a curated technical knowledge corpus of 12,500 documents demonstrates significant improvements over baseline GPT-3.5: hallucination rate reduced from 31% to 9% (71% reduction), accuracy improved from 68.4% to 91.2%, and average relevance score increased from 0.72 to 0.94. Response latency remained practical at 2.3\u00b10.4 seconds. The framework achieves F1-score of 0.89, demonstrating robust performance across diverse query types. These results validate RAG as an effective approach for grounding LLM outputs in verifiable knowledge, with significant implications for deploying trustworthy AI systems in engineering and technical domains.</jats:p>",
-        "DOI": "10.53022/oarjet.2026.10.2.0033",
-        "type": "journal-article",
-        "created": {
-          "date-parts": [
-            [
-              2026,
-              5,
-              5
-            ]
-          ],
-          "date-time": "2026-05-05T09:22:46Z",
-          "timestamp": 1777972966000
-        },
-        "page": "058-063",
-        "update-policy": "https://doi.org/10.53022/oarj.ourcrossmarkpolicy",
-        "source": "Crossref",
-        "is-referenced-by-count": 0,
-        "title": [
-          "Mitigating hallucinations in large language models through enhanced retrieval-augmented generation: A Framework with FAISS and Lang Chain"
-        ],
-        "prefix": "10.53022",
-        "volume": "10",
-        "author": [
-          {
-            "given": "Preetjot",
-            "family": "Kaur",
-            "sequence": "first",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          },
-          {
-            "given": "Roopali",
-            "family": "Garg",
-            "sequence": "additional",
-            "affiliation": [],
-            "role": [
-              {
-                "role": "author",
-                "vocabulary": "crossref"
-              }
-            ]
-          }
-        ],
-        "member": "31040",
-        "published-online": {
-          "date-parts": [
-            [
-              2026,
-              4,
-              30
-            ]
-          ]
-        },
-        "container-title": [
-          "Open Access Research Journal of Engineering and Technology"
-        ],
-        "link": [
-          {
-            "URL": "https://oarjpublication.com/journals/oarjet/node/447",
-            "content-type": "unspecified",
-            "content-version": "vor",
-            "intended-application": "similarity-checking"
-          }
-        ],
-        "deposited": {
-          "date-parts": [
-            [
-              2026,
-              5,
-              5
-            ]
-          ],
-          "date-time": "2026-05-05T09:22:46Z",
-          "timestamp": 1777972966000
-        },
-        "score": 28.500916,
-        "resource": {
-          "primary": {
-            "URL": "https://oarjpublication.com/journals/oarjet/node/447"
-          }
-        },
-        "issued": {
-          "date-parts": [
-            [
-              2026,
-              4,
-              30
-            ]
-          ]
-        },
-        "references-count": 0,
-        "journal-issue": {
-          "issue": "2",
-          "published-online": {
-            "date-parts": [
-              [
-                2026,
-                4,
-                30
-              ]
-            ]
-          }
-        },
-        "URL": "https://doi.org/10.53022/oarjet.2026.10.2.0033",
-        "ISSN": [
-          "2783-0128"
-        ],
-        "issn-type": [
-          {
-            "value": "2783-0128",
-            "type": "electronic"
-          }
-        ],
-        "published": {
-          "date-parts": [
-            [
-              2026,
-              4,
-              30
             ]
           ]
         }
@@ -20032,7 +20032,7 @@
           "date-time": "2026-06-09T04:46:13Z",
           "timestamp": 1780980373000
         },
-        "score": 28.454323,
+        "score": 28.45478,
         "resource": {
           "primary": {
             "URL": "https://www.mdpi.com/1424-8220/26/11/3602"
@@ -20216,7 +20216,7 @@
           "date-time": "2026-05-08T06:13:12Z",
           "timestamp": 1778220792000
         },
-        "score": 28.327637,
+        "score": 28.328913,
         "resource": {
           "primary": {
             "URL": "https://www.indjcst.com/archives/paper-details?paperid=389&papertitle=auto-trader-x-an-agentic-ai-and-retrieval-augmented-generation-framework-for-real-time-explainable-financial-decision-support"
@@ -20698,7 +20698,7 @@
           "date-time": "2026-05-19T09:23:21Z",
           "timestamp": 1779182601000
         },
-        "score": 28.21268,
+        "score": 28.213697,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-9741159/v1"
@@ -20829,7 +20829,7 @@
           "date-time": "2026-07-29T04:54:02Z",
           "timestamp": 1785300842000
         },
-        "score": 28.037653,
+        "score": 28.03877,
         "resource": {
           "primary": {
             "URL": "https://ijcope.org/article/intent-aware-adaptive-trust-retrieval-augmented-generation-iat-rag-a-framework-for-trustworthy-document-question-answering-using-open-source-large-language-models/"
@@ -22554,7 +22554,7 @@
           "date-time": "2026-08-03T20:12:43Z",
           "timestamp": 1785787963000
         },
-        "score": 28.021053,
+        "score": 28.022179,
         "resource": {
           "primary": {
             "URL": "https://www.jmir.org/2026/1/e90046"
@@ -22718,7 +22718,7 @@
           "date-time": "2026-07-16T09:32:11Z",
           "timestamp": 1784194331000
         },
-        "score": 28.001091,
+        "score": 27.999783,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10368581/v1"
@@ -23681,7 +23681,7 @@
           "date-time": "2026-08-05T08:11:26Z",
           "timestamp": 1785917486000
         },
-        "score": 27.990246,
+        "score": 27.989532,
         "resource": {
           "primary": {
             "URL": "https://wires.onlinelibrary.wiley.com/doi/10.1002/widm.70122"
@@ -23923,7 +23923,7 @@
           "date-time": "2026-07-20T01:46:48Z",
           "timestamp": 1784512008000
         },
-        "score": 27.925913,
+        "score": 27.927269,
         "resource": {
           "primary": {
             "URL": "https://ejournal.akakom.ac.id/index.php/JISS/article/view/2810"
@@ -24096,7 +24096,7 @@
           "date-time": "2026-07-07T07:58:02Z",
           "timestamp": 1783411082000
         },
-        "score": 27.885817,
+        "score": 27.886896,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10259285/v1"
@@ -24281,7 +24281,7 @@
           "date-time": "2026-03-18T07:44:31Z",
           "timestamp": 1773819871000
         },
-        "score": 27.81783,
+        "score": 27.818333,
         "resource": {
           "primary": {
             "URL": "https://ojs.aaai.org/index.php/AAAI/article/view/41419"
@@ -25231,7 +25231,7 @@
           "date-time": "2026-06-25T09:31:58Z",
           "timestamp": 1782379918000
         },
-        "score": 27.814445,
+        "score": 27.815,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-9561394/v1"
@@ -25381,7 +25381,7 @@
           "date-time": "2026-06-12T15:51:03Z",
           "timestamp": 1781279463000
         },
-        "score": 27.733646,
+        "score": 27.733898,
         "resource": {
           "primary": {
             "URL": "https://www.techrxiv.org/doi/full/10.36227/techrxiv.177155637.75354706/v1"
@@ -25604,7 +25604,7 @@
           "date-time": "2026-03-18T07:41:51Z",
           "timestamp": 1773819711000
         },
-        "score": 27.611204,
+        "score": 27.611273,
         "resource": {
           "primary": {
             "URL": "https://wseas.com/journals/isa/2026/a345109-007(2026).pdf"
@@ -25797,7 +25797,7 @@
           "date-time": "2026-04-13T01:41:15Z",
           "timestamp": 1776044475000
         },
-        "score": 27.556732,
+        "score": 27.527834,
         "resource": {
           "primary": {
             "URL": "https://ejournal.undiksha.ac.id/index.php/janapati/article/view/112281"
@@ -26023,7 +26023,7 @@
           "date-time": "2026-05-10T04:38:55Z",
           "timestamp": 1778387935000
         },
-        "score": 27.556732,
+        "score": 27.527834,
         "resource": {
           "primary": {
             "URL": "https://ijarsct.co.in/Paper34979.pdf"
@@ -26229,7 +26229,7 @@
           "date-time": "2026-06-26T07:47:31Z",
           "timestamp": 1782460051000
         },
-        "score": 27.489998,
+        "score": 27.490904,
         "resource": {
           "primary": {
             "URL": "https://irjaeh.com/index.php/journal/article/view/1883"
@@ -26419,7 +26419,7 @@
           "date-time": "2026-03-08T10:32:01Z",
           "timestamp": 1772965921000
         },
-        "score": 27.469172,
+        "score": 27.469603,
         "resource": {
           "primary": {
             "URL": "https://ijsra.net/node/5895"
@@ -26618,7 +26618,7 @@
           "date-time": "2026-06-23T00:00:00Z",
           "timestamp": 1782172800000
         },
-        "score": 27.459785,
+        "score": 27.45998,
         "resource": {
           "primary": {
             "URL": "https://ojs.revistacontribuciones.com/ojs/index.php/clcs/article/view/24482"
@@ -27211,7 +27211,7 @@
           "date-time": "2026-07-21T05:34:49Z",
           "timestamp": 1784612089000
         },
-        "score": 27.456491,
+        "score": 27.457664,
         "resource": {
           "primary": {
             "URL": "https://www.frontiersin.org/articles/10.3389/fmtec.2026.1875357/full"
@@ -27475,7 +27475,7 @@
           "date-time": "2026-07-08T15:35:18Z",
           "timestamp": 1783524918000
         },
-        "score": 27.450024,
+        "score": 27.451166,
         "resource": {
           "primary": {
             "URL": "https://www.ijisrt.com/legalmind-a-multiagent-legal-reasoning-framework-leveraging-finetuning-of-large-language-models-and-retrievalaugmented-generation-to-reduce-hallucinations"
@@ -27616,7 +27616,7 @@
           "date-time": "2026-06-05T00:48:10Z",
           "timestamp": 1780620490000
         },
-        "score": 27.404984,
+        "score": 27.404552,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202606.0414/v1"
@@ -27794,7 +27794,7 @@
           "date-time": "2026-07-10T07:51:26Z",
           "timestamp": 1783669886000
         },
-        "score": 27.342499,
+        "score": 27.343584,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202607.0719/v1"
@@ -27926,7 +27926,7 @@
           "date-time": "2026-07-10T12:59:35Z",
           "timestamp": 1783688375000
         },
-        "score": 27.27078,
+        "score": 27.27045,
         "resource": {
           "primary": {
             "URL": "https://engrxiv.org/preprint/view/7545/version/9757"
@@ -28068,7 +28068,7 @@
           "date-time": "2026-07-09T07:24:32Z",
           "timestamp": 1783581872000
         },
-        "score": 27.08026,
+        "score": 27.08067,
         "resource": {
           "primary": {
             "URL": "https://www.preprints.org/manuscript/202607.0315/v1"
@@ -29369,7 +29369,7 @@
           "date-time": "2026-05-15T16:09:27Z",
           "timestamp": 1778861367000
         },
-        "score": 27.013414,
+        "score": 26.94223,
         "resource": {
           "primary": {
             "URL": "https://dl.acm.org/doi/10.1145/3805774"
@@ -29632,7 +29632,7 @@
           "date-time": "2026-07-30T05:29:30Z",
           "timestamp": 1785389370000
         },
-        "score": 26.895493,
+        "score": 26.89613,
         "resource": {
           "primary": {
             "URL": "https://jurnaledukasia.org/index.php/edukasia/article/view/2141"
@@ -29824,7 +29824,7 @@
           "date-time": "2026-03-13T20:25:48Z",
           "timestamp": 1773433548000
         },
-        "score": 26.88153,
+        "score": 26.882496,
         "resource": {
           "primary": {
             "URL": "https://meetingorganizer.copernicus.org/EGU26/EGU26-2819.html"
@@ -30010,7 +30010,7 @@
           "date-time": "2026-04-16T12:17:09Z",
           "timestamp": 1776341829000
         },
-        "score": 26.856499,
+        "score": 26.857424,
         "resource": {
           "primary": {
             "URL": "https://irjaeh.com/index.php/journal/article/view/1476"
@@ -30587,7 +30587,7 @@
           "date-time": "2026-04-17T04:14:00Z",
           "timestamp": 1776399240000
         },
-        "score": 26.84579,
+        "score": 26.84676,
         "resource": {
           "primary": {
             "URL": "https://www.frontiersin.org/articles/10.3389/fmars.2026.1801835/full"
@@ -30829,7 +30829,7 @@
           "date-time": "2026-04-24T21:50:16Z",
           "timestamp": 1777067416000
         },
-        "score": 26.813564,
+        "score": 26.815323,
         "resource": {
           "primary": {
             "URL": "http://biorxiv.org/lookup/doi/10.64898/2026.04.18.719404"
@@ -30963,7 +30963,7 @@
           "date-time": "2026-07-13T04:37:02Z",
           "timestamp": 1783917422000
         },
-        "score": 26.7527,
+        "score": 26.752846,
         "resource": {
           "primary": {
             "URL": "https://www.opastpublishers.com/open-access-articles/automated-admission-booking-via-whatsapp-using-a-retrievalaugmented-generation-system-10948.html"
@@ -31152,7 +31152,7 @@
           "date-time": "2026-07-03T16:48:38Z",
           "timestamp": 1783097318000
         },
-        "score": 26.681055,
+        "score": 26.68052,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10020935/v1"
@@ -31305,7 +31305,7 @@
           "date-time": "2026-07-07T06:58:28Z",
           "timestamp": 1783407508000
         },
-        "score": 26.660467,
+        "score": 26.660742,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-10252606/v1"
@@ -31460,7 +31460,7 @@
           "date-time": "2026-06-20T09:24:49Z",
           "timestamp": 1781947489000
         },
-        "score": 26.657198,
+        "score": 26.651997,
         "resource": {
           "primary": {
             "URL": "https://ijeret.org/index.php/ijeret/article/view/628/"
@@ -32388,7 +32388,7 @@
           "date-time": "2026-06-11T23:50:57Z",
           "timestamp": 1781221857000
         },
-        "score": 26.634537,
+        "score": 26.635334,
         "resource": {
           "primary": {
             "URL": "https://www.nature.com/articles/s41598-026-35392-x"
@@ -32635,7 +32635,7 @@
           "date-time": "2026-06-18T11:55:12Z",
           "timestamp": 1781783712000
         },
-        "score": 26.606373,
+        "score": 26.606995,
         "resource": {
           "primary": {
             "URL": "https://scienceopen.com/hosted-document?doi=10.14293/PR2199.003853.v1"
@@ -32791,7 +32791,7 @@
           "date-time": "2026-06-01T13:24:59Z",
           "timestamp": 1780320299000
         },
-        "score": 26.456654,
+        "score": 26.533924,
         "resource": {
           "primary": {
             "URL": "https://aijfr.com/research-paper.php?id=5930"
@@ -33037,7 +33037,7 @@
           "date-time": "2026-02-20T02:51:18Z",
           "timestamp": 1771555878000
         },
-        "score": 26.306156,
+        "score": 26.306673,
         "resource": {
           "primary": {
             "URL": "https://www.researchsquare.com/article/rs-8917857/v1"
@@ -33258,7 +33258,7 @@
           "date-time": "2026-03-18T02:35:12Z",
           "timestamp": 1773801312000
         },
-        "score": 26.242657,
+        "score": 26.243443,
         "resource": {
           "primary": {
             "URL": "https://ojs.aaai.org/index.php/AAAI/article/view/40239"

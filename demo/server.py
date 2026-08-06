@@ -18,6 +18,8 @@ PYTHON = ROOT / ".venv" / "Scripts" / "python.exe"
 EDITABLE_CONFIG = {
     "LLM_PROVIDER": {"type": "choice", "choices": ["gemini", "openai", "anthropic", "openrouter", "ollama", "custom"]},
     "LLM_MODEL": {"type": "text"},
+    "EMBEDDING_PROVIDER": {"type": "choice", "choices": ["openai", "local"]},
+    "EMBEDDING_MODEL": {"type": "text"},
     "SOURCE_QUERY": {"type": "text"},
     "MAX_RESULTS": {"type": "int", "min": 10, "max": 500},
     "TOP_K": {"type": "int", "min": 1, "max": 20},
@@ -34,6 +36,7 @@ EDITABLE_CONFIG = {
 
 DEFAULTS = {
     "LLM_PROVIDER": "gemini", "LLM_MODEL": "gemini-2.5-flash",
+    "EMBEDDING_PROVIDER": "openai", "EMBEDDING_MODEL": "text-embedding-3-small",
     "SOURCE_QUERY": "agentic retrieval augmented generation large language model",
     "MAX_RESULTS": "100", "TOP_K": "4", "FRESHNESS_THRESHOLD_DAYS": "180",
     "REFRESH_SOURCE": "0", "REFRESH_TEST_SET": "0", "RUN_RAGAS": "0",
@@ -46,6 +49,10 @@ STEPS = {
     "crawl": [str(PYTHON), "script/run_crawl.py"],
     "baseline": [str(PYTHON), "script/run_phase1.py"],
     "comparison": [str(PYTHON), "script/run_corruption_flow.py"],
+}
+STEP_SEQUENCES = {
+    **{name: [name] for name in STEPS},
+    "all": ["crawl", "baseline", "comparison"],
 }
 
 
@@ -188,19 +195,37 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({"ok": True, "config": safe_config()})
             if path.startswith("/api/run/"):
                 step = path.rsplit("/", 1)[-1]
-                if step not in STEPS:
+                if step not in STEP_SEQUENCES:
                     return self.send_json({"error": "Unknown pipeline step"}, 404)
                 if not PYTHON.exists():
                     return self.send_json({"error": "Missing .venv Python. Run uv sync first."}, 400)
-                process = subprocess.run(
-                    STEPS[step], cwd=ROOT, env=os.environ.copy(), text=True,
-                    capture_output=True, timeout=1800,
-                )
-                output = "\n".join(part for part in (process.stdout, process.stderr) if part).strip()
+                process_env = {
+                    **os.environ,
+                    "HF_HUB_OFFLINE": "1",
+                    "TRANSFORMERS_OFFLINE": "1",
+                    "HF_HUB_DISABLE_TELEMETRY": "1",
+                }
+                logs: list[str] = []
+                exit_code = 0
+                completed_steps: list[str] = []
+                for current_step in STEP_SEQUENCES[step]:
+                    logs.append(f"\n{'=' * 16} {current_step.upper()} {'=' * 16}")
+                    process = subprocess.run(
+                        STEPS[current_step], cwd=ROOT, env=process_env, text=True,
+                        capture_output=True, timeout=1800,
+                    )
+                    logs.extend(part.strip() for part in (process.stdout, process.stderr) if part.strip())
+                    exit_code = process.returncode
+                    if exit_code != 0:
+                        logs.append(f"Pipeline stopped: {current_step} failed with exit code {exit_code}.")
+                        break
+                    completed_steps.append(current_step)
+                output = "\n".join(logs).strip()
                 return self.send_json({
-                    "ok": process.returncode == 0, "exitCode": process.returncode,
-                    "output": output[-24000:], "dashboard": dashboard(),
-                }, 200 if process.returncode == 0 else 500)
+                    "ok": exit_code == 0, "exitCode": exit_code,
+                    "completedSteps": completed_steps,
+                    "output": output[-60000:], "dashboard": dashboard(),
+                }, 200 if exit_code == 0 else 500)
         except subprocess.TimeoutExpired as exc:
             return self.send_json({"error": "Step timed out after 30 minutes", "output": str(exc)}, 504)
         except Exception as exc:

@@ -60,15 +60,24 @@ def main() -> None:
         freshness=freshness,
     )
 
-    agent = build_agent(settings, index)
-    demo_answers = [
-        {"question": item["question"], "answer": run_agent_question(agent, item["question"])}
-        for item in test_set[:_DEMO_QUESTION_COUNT]
-    ]
+    demo_answers = []
+    try:
+        agent = build_agent(settings, index)
+        for item in test_set[:_DEMO_QUESTION_COUNT]:
+            try:
+                answer = run_agent_question(agent, item["question"])
+            except Exception as exc:
+                answer = f"Agent demo unavailable; baseline artifacts are still valid. {exc}"
+            demo_answers.append({"question": item["question"], "answer": answer})
+    except Exception as exc:
+        demo_answers = [{"question": "Agent initialization", "answer": f"Skipped: {exc}"}]
     write_json(settings.paths.demo_answers, demo_answers)
 
     print(f"Raw records: {len(records)} | Clean records: {len(df)}")
     print(f"Metrics: {bundle.summary}")
-    print(f"Data quality passed: {quality['passed']} ({quality['checks_passed']}/{quality['checks_total']})")
+    print(
+        f"Data quality passed: {quality['success']} "
+        f"({quality['passed_checks']}/{quality['total_checks']})"
+    )
     print(f"Freshness is_fresh: {freshness['is_fresh']}")
     print(f"Report written to: {settings.paths.baseline_report}")

@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-08-06T04:01:41.043623+00:00",
-  "latest_published": "2026-12-01",
-  "oldest_published": "2026-02-12",
-  "total_rows": 100,
+  "generated_at": "2026-08-06T04:34:50.270342+00:00",
+  "threshold_days": 180,
+  "latest_published": "2026-12-01T00:00:00+00:00",
+  "oldest_published": "2026-02-12T00:00:00+00:00",
   "stale_rows": 0,
-  "freshness_threshold_days": 180,
+  "invalid_date_rows": 0,
+  "total_rows": 100,
   "is_fresh": true
 }

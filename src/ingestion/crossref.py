@@ -150,6 +150,10 @@ def _get_with_retry(params: dict, max_attempts: int = 5, timeout: int = 30) -> r
             response = requests.get(CROSSREF_API_URL, params=params, timeout=timeout)
         except requests.RequestException as exc:
             last_error = exc
+            # WinError 10013 is a local firewall/socket policy denial. Retrying
+            # cannot recover it and only makes the UI appear stuck for 15s.
+            if "WinError 10013" in str(exc):
+                break
         else:
             if response.status_code == 200:
                 return response
@@ -164,7 +168,7 @@ def _get_with_retry(params: dict, max_attempts: int = 5, timeout: int = 30) -> r
     raise RuntimeError(f"Crossref request failed after {max_attempts} attempts") from last_error
 
 
-def fetch_source_records(settings: Settings) -> list[PaperRecord]:
+def fetch_source_records(settings: Settings, *, allow_cached_fallback: bool = True) -> list[PaperRecord]:
     """Fetch works from the Crossref API, persist raw artifacts, and parse them.
 
     Saves the untouched API response to `settings.paths.raw_api_response` and
@@ -177,7 +181,20 @@ def fetch_source_records(settings: Settings) -> list[PaperRecord]:
         "rows": settings.max_results,
     }
 
-    response = _get_with_retry(params)
+    try:
+        response = _get_with_retry(params)
+    except RuntimeError as exc:
+        cache_path = settings.paths.raw_records_json
+        if not allow_cached_fallback or not cache_path.exists():
+            raise
+        records = load_raw_records(cache_path)
+        if not records:
+            raise RuntimeError("Crossref is unavailable and the cached snapshot is empty.") from exc
+        print(
+            "WARNING: Crossref is unavailable; using cached raw snapshot "
+            f"({len(records)} records) from {cache_path}"
+        )
+        return records
     payload = response.json()
     write_json(settings.paths.raw_api_response, payload)
 

@@ -9,7 +9,7 @@ import pandas as pd
 
 from core.config import Settings
 from core.utils import read_json, safe_slug, write_json
-from retrieval.embeddings import MiniLMEmbeddings
+from retrieval.embeddings import ConfiguredEmbeddings
 
 
 @dataclass(frozen=True)
@@ -28,15 +28,22 @@ class LocalEmbeddingIndex:
         collection_name: str,
         documents: list[dict[str, Any]],
         persist_path: Path,
+        embedding_provider_used: str | None = None,
+        client=None,
+        collection=None,
     ):
         self.settings = settings
         self.collection_name = collection_name
         self.documents = documents
         self.persist_path = persist_path
         self.embedding_backend = "chroma"
-        self.embedding_model = MiniLMEmbeddings(settings.embedding_model)
-        self.client = chromadb.PersistentClient(path=str(persist_path))
-        self.collection = self.client.get_collection(name=collection_name)
+        self.embedding_provider_used = embedding_provider_used or settings.embedding_provider
+        self.embedding_model = ConfiguredEmbeddings(
+            settings,
+            force_local_fallback=self.embedding_provider_used == "local-hash-fallback",
+        )
+        self.client = client or chromadb.PersistentClient(path=str(persist_path))
+        self.collection = collection or self.client.get_collection(name=collection_name)
         self.documents_by_paper_id = {document["paper_id"].lower(): document for document in documents}
         self.documents_by_title = {document["title"].lower(): document for document in documents}
 
@@ -92,7 +99,7 @@ class LocalEmbeddingIndex:
         persist_path = settings.paths.chroma_dir
         persist_path.mkdir(parents=True, exist_ok=True)
 
-        embedding_model = MiniLMEmbeddings(settings.embedding_model)
+        embedding_model = ConfiguredEmbeddings(settings)
         client = chromadb.PersistentClient(path=str(persist_path))
         try:
             client.delete_collection(name=collection_name)
@@ -115,6 +122,8 @@ class LocalEmbeddingIndex:
             manifest_path,
             {
                 "backend": "chroma",
+                "embedding_provider": settings.embedding_provider,
+                "embedding_provider_used": embedding_model.actual_provider,
                 "embedding_model": settings.embedding_model,
                 "persist_path": str(persist_path),
                 "collection_name": collection_name,
@@ -126,6 +135,9 @@ class LocalEmbeddingIndex:
             collection_name=collection_name,
             documents=documents,
             persist_path=persist_path,
+            embedding_provider_used=embedding_model.actual_provider,
+            client=client,
+            collection=collection,
         )
 
     @classmethod
@@ -136,6 +148,7 @@ class LocalEmbeddingIndex:
             collection_name=payload["collection_name"],
             documents=payload["documents"],
             persist_path=Path(payload["persist_path"]),
+            embedding_provider_used=payload.get("embedding_provider_used"),
         )
 
     def search(self, query: str, top_k: int | None = None) -> list[SearchResult]:

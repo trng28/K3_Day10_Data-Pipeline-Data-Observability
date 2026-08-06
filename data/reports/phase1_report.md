@@ -1,34 +1,45 @@
-# Phase 1 - Baseline Report
+# Phase 1 Baseline Report
 
-## Source
+## Source Summary
 
-- Source: Crossref REST API
-- Query: `agentic retrieval augmented generation large language model`
-- Filter: `from-pub-date:2026-02-07,has-abstract:true`
-- Raw records fetched: 100
-- Clean records: 100
+| Field | Value |
+|---|---|
+| source_api | Crossref REST API |
+| source_query | agentic retrieval augmented generation large language model |
+| source_filter | from-pub-date:2026-02-07,has-abstract:true |
+| raw_record_count | 100 |
+| clean_record_count | 100 |
 
 ## Evaluation Metrics
 
-- Samples: 18
-- Retrieval hit rate: 1.0000
-- Mean token F1: 0.7554
-- Judge accuracy: 0.6667
-- Mean judge score: 3.9444
+| Metric | Value |
+|---|---:|
+| Samples | 18 |
+| Retrieval hit rate | 1.0000 |
+| Mean token F1 | 0.7554 |
+| Judge accuracy | 0.6667 |
+| Mean judge score | 3.6667 |
 
 ## Data Quality
 
-- Overall: PASS (6/6 checks)
-- [PASS] `row_count_min`: 100 rows
-- [PASS] `paper_id_not_null`: 0 blank paper_id values
-- [PASS] `paper_id_unique`: 0 duplicate paper_id values
-- [PASS] `title_not_null`: 0 blank title values
-- [PASS] `summary_length`: 0 rows with summary shorter than 20 chars
-- [PASS] `freshness`: 0 rows older than 180 days
+Overall status: **PASS**
+
+| Check | Status | Observed | Expectation |
+|---|---|---|---|
+| row_count | PASS | 100 | at least 1 row |
+| paper_id_not_null | PASS | 0 | 0 missing values |
+| paper_id_unique | PASS | 0 | 0 duplicate values |
+| title_not_null | PASS | 0 | 0 missing values |
+| summary_min_length | PASS | 0 | all summaries >= 80 characters |
+| freshness_threshold | PASS | {'stale_rows': 0, 'invalid_rows': 0} | all age_days <= 180 |
 
 ## Freshness
 
-- Latest published: 2026-12-01
-- Oldest published: 2026-02-12
-- Stale rows: 0 / 100
-- Is fresh: YES
+| Signal | Value |
+|---|---|
+| Latest published | 2026-12-01T00:00:00+00:00 |
+| Oldest published | 2026-02-12T00:00:00+00:00 |
+| Stale rows | 0 |
+| Invalid date rows | 0 |
+| Total rows | 100 |
+| Freshness status | PASS |
