@@ -1,0 +1,40 @@
+{
+  "report_name": "repaired",
+  "generated_at": "2026-08-06T04:01:41.041618+00:00",
+  "row_count": 100,
+  "checks": [
+    {
+      "check": "row_count_min",
+      "passed": true,
+      "detail": "100 rows"
+    },
+    {
+      "check": "paper_id_not_null",
+      "passed": true,
+      "detail": "0 blank paper_id values"
+    },
+    {
+      "check": "paper_id_unique",
+      "passed": true,
+      "detail": "0 duplicate paper_id values"
+    },
+    {
+      "check": "title_not_null",
+      "passed": true,
+      "detail": "0 blank title values"
+    },
+    {
+      "check": "summary_length",
+      "passed": true,
+      "detail": "0 rows with summary shorter than 20 chars"
+    },
+    {
+      "check": "freshness",
+      "passed": true,
+      "detail": "0 rows older than 180 days"
+    }
+  ],
+  "checks_passed": 6,
+  "checks_total": 6,
+  "passed": true
+}
