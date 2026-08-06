@@ -1,8 +1,8 @@
 {
   "report_name": "corrupted",
-  "generated_at": "2026-08-06T04:34:25.340341+00:00",
+  "generated_at": "2026-08-06T05:21:29.594154+00:00",
   "success": false,
-  "total_rows": 130,
+  "total_rows": 32,
   "passed_checks": 3,
   "total_checks": 6,
   "failed_checks": [
@@ -14,7 +14,7 @@
     {
       "name": "row_count",
       "success": true,
-      "observed": 130,
+      "observed": 32,
       "expectation": "at least 1 row"
     },
     {
@@ -26,7 +26,7 @@
     {
       "name": "paper_id_unique",
       "success": false,
-      "observed": 40,
+      "observed": 10,
       "expectation": "0 duplicate values"
     },
     {
@@ -38,14 +38,14 @@
     {
       "name": "summary_min_length",
       "success": false,
-      "observed": 12,
+      "observed": 3,
       "expectation": "all summaries >= 80 characters"
     },
     {
       "name": "freshness_threshold",
       "success": false,
       "observed": {
-        "stale_rows": 74,
+        "stale_rows": 18,
         "invalid_rows": 0
       },
       "expectation": "all age_days <= 180"

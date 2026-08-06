@@ -1,8 +1,8 @@
 {
   "report_name": "baseline",
-  "generated_at": "2026-08-06T04:33:32.141507+00:00",
+  "generated_at": "2026-08-06T05:19:52.975859+00:00",
   "success": true,
-  "total_rows": 100,
+  "total_rows": 24,
   "passed_checks": 6,
   "total_checks": 6,
   "failed_checks": [],
@@ -10,7 +10,7 @@
     {
       "name": "row_count",
       "success": true,
-      "observed": 100,
+      "observed": 24,
       "expectation": "at least 1 row"
     },
     {

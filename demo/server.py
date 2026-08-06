@@ -38,7 +38,7 @@ DEFAULTS = {
     "LLM_PROVIDER": "gemini", "LLM_MODEL": "gemini-2.5-flash",
     "EMBEDDING_PROVIDER": "openai", "EMBEDDING_MODEL": "text-embedding-3-small",
     "SOURCE_QUERY": "agentic retrieval augmented generation large language model",
-    "MAX_RESULTS": "100", "TOP_K": "4", "FRESHNESS_THRESHOLD_DAYS": "180",
+    "MAX_RESULTS": "24", "TOP_K": "4", "FRESHNESS_THRESHOLD_DAYS": "180",
     "REFRESH_SOURCE": "0", "REFRESH_TEST_SET": "0", "RUN_RAGAS": "0",
     "CORRUPTION_DROP_RATE": "0.10", "CORRUPTION_BLANK_RATE": "0.12",
     "CORRUPTION_NOISE_RATE": "0.12", "CORRUPTION_STALE_RATE": "0.10",
@@ -175,6 +175,48 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def send_stream_event(self, payload):
+        data = (json.dumps(payload, ensure_ascii=False) + "\n").encode("utf-8")
+        self.wfile.write(data)
+        self.wfile.flush()
+
+    def run_pipeline_stream(self, requested_step: str):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache")
+        self.send_header("Connection", "close")
+        self.end_headers()
+        process_env = {
+            **os.environ,
+            "HF_HUB_OFFLINE": "1",
+            "TRANSFORMERS_OFFLINE": "1",
+            "HF_HUB_DISABLE_TELEMETRY": "1",
+            "PYTHONUNBUFFERED": "1",
+        }
+        completed_steps: list[str] = []
+        exit_code = 0
+        for current_step in STEP_SEQUENCES[requested_step]:
+            self.send_stream_event({"type": "step_start", "step": current_step})
+            process = subprocess.Popen(
+                STEPS[current_step], cwd=ROOT, env=process_env, text=True,
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                bufsize=1, encoding="utf-8", errors="replace",
+            )
+            assert process.stdout is not None
+            for line in iter(process.stdout.readline, ""):
+                if line:
+                    self.send_stream_event({"type": "log", "step": current_step, "message": line.rstrip()})
+            process.stdout.close()
+            exit_code = process.wait()
+            self.send_stream_event({"type": "step_end", "step": current_step, "ok": exit_code == 0})
+            if exit_code != 0:
+                break
+            completed_steps.append(current_step)
+        self.send_stream_event({
+            "type": "complete", "ok": exit_code == 0, "exitCode": exit_code,
+            "completedSteps": completed_steps, "dashboard": dashboard(),
+        })
+
     def read_body(self):
         length = int(self.headers.get("Content-Length", "0"))
         return json.loads(self.rfile.read(length) or b"{}")
@@ -199,33 +241,29 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send_json({"error": "Unknown pipeline step"}, 404)
                 if not PYTHON.exists():
                     return self.send_json({"error": "Missing .venv Python. Run uv sync first."}, 400)
-                process_env = {
-                    **os.environ,
-                    "HF_HUB_OFFLINE": "1",
-                    "TRANSFORMERS_OFFLINE": "1",
-                    "HF_HUB_DISABLE_TELEMETRY": "1",
-                }
-                logs: list[str] = []
-                exit_code = 0
-                completed_steps: list[str] = []
-                for current_step in STEP_SEQUENCES[step]:
-                    logs.append(f"\n{'=' * 16} {current_step.upper()} {'=' * 16}")
-                    process = subprocess.run(
-                        STEPS[current_step], cwd=ROOT, env=process_env, text=True,
-                        capture_output=True, timeout=1800,
-                    )
-                    logs.extend(part.strip() for part in (process.stdout, process.stderr) if part.strip())
-                    exit_code = process.returncode
-                    if exit_code != 0:
-                        logs.append(f"Pipeline stopped: {current_step} failed with exit code {exit_code}.")
-                        break
-                    completed_steps.append(current_step)
-                output = "\n".join(logs).strip()
+                return self.run_pipeline_stream(step)
+            if path == "/api/chat":
+                question = str(self.read_body().get("question", "")).strip()
+                if not question:
+                    return self.send_json({"error": "Question is required."}, 400)
+                from core.config import load_settings
+                from retrieval.index import LocalEmbeddingIndex
+                from retrieval.qa import answer_question
+
+                settings = load_settings(ROOT)
+                if not settings.paths.embeddings_json.exists():
+                    return self.send_json({"error": "Baseline index is missing. Run baseline first."}, 400)
+                result = answer_question(
+                    question, settings=settings,
+                    index=LocalEmbeddingIndex.load(settings),
+                )
                 return self.send_json({
-                    "ok": exit_code == 0, "exitCode": exit_code,
-                    "completedSteps": completed_steps,
-                    "output": output[-60000:], "dashboard": dashboard(),
-                }, 200 if exit_code == 0 else 500)
+                    "question": result.question,
+                    "answer": result.answer,
+                    "retrievedDocIds": result.retrieved_doc_ids,
+                    "retrievedTitles": result.retrieved_titles,
+                    "contexts": result.retrieved_contexts,
+                })
         except subprocess.TimeoutExpired as exc:
             return self.send_json({"error": "Step timed out after 30 minutes", "output": str(exc)}, 504)
         except Exception as exc:

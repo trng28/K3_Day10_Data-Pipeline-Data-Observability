@@ -187,7 +187,7 @@ def fetch_source_records(settings: Settings, *, allow_cached_fallback: bool = Tr
         cache_path = settings.paths.raw_records_json
         if not allow_cached_fallback or not cache_path.exists():
             raise
-        records = load_raw_records(cache_path)
+        records = load_raw_records(cache_path)[: settings.max_results]
         if not records:
             raise RuntimeError("Crossref is unavailable and the cached snapshot is empty.") from exc
         print(

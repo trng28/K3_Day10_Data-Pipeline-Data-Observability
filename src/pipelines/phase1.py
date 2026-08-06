@@ -21,7 +21,7 @@ def main() -> None:
     if settings.refresh_source or not settings.paths.raw_records_json.exists():
         records = fetch_source_records(settings)
     else:
-        records = load_raw_records(settings.paths.raw_records_json)
+        records = load_raw_records(settings.paths.raw_records_json)[: settings.max_results]
 
     df = build_clean_dataframe(records, run_date)
     write_csv(df, settings.paths.clean_csv)
@@ -29,10 +29,16 @@ def main() -> None:
 
     index = LocalEmbeddingIndex.build(df, settings)
 
-    if settings.refresh_test_set or not settings.paths.eval_testset.exists():
+    corpus_ids = set(df["paper_id"].astype(str))
+    cached_test_set = read_json(settings.paths.eval_testset) if settings.paths.eval_testset.exists() else []
+    test_set_matches_corpus = bool(cached_test_set) and all(
+        any(doc_id in corpus_ids for doc_id in item.get("ground_truth_doc_ids", []))
+        for item in cached_test_set
+    )
+    if settings.refresh_test_set or not test_set_matches_corpus:
         test_set = build_test_set(df, settings.paths.eval_testset)
     else:
-        test_set = read_json(settings.paths.eval_testset)
+        test_set = cached_test_set
 
     bundle = evaluate_pipeline(
         settings=settings,

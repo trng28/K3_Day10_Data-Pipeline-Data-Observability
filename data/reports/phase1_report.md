@@ -7,18 +7,18 @@
 | source_api | Crossref REST API |
 | source_query | agentic retrieval augmented generation large language model |
 | source_filter | from-pub-date:2026-02-07,has-abstract:true |
-| raw_record_count | 100 |
-| clean_record_count | 100 |
+| raw_record_count | 24 |
+| clean_record_count | 24 |
 
 ## Evaluation Metrics
 
 | Metric | Value |
 |---|---:|
-| Samples | 18 |
+| Samples | 24 |
 | Retrieval hit rate | 1.0000 |
-| Mean token F1 | 0.7554 |
-| Judge accuracy | 0.6667 |
-| Mean judge score | 3.6667 |
+| Mean token F1 | 0.5000 |
+| Judge accuracy | 0.7083 |
+| Mean judge score | 3.8333 |
 
 ## Data Quality
 
@@ -26,7 +26,7 @@ Overall status: **PASS**
 
 | Check | Status | Observed | Expectation |
 |---|---|---|---|
-| row_count | PASS | 100 | at least 1 row |
+| row_count | PASS | 24 | at least 1 row |
 | paper_id_not_null | PASS | 0 | 0 missing values |
 | paper_id_unique | PASS | 0 | 0 duplicate values |
 | title_not_null | PASS | 0 | 0 missing values |
@@ -37,9 +37,9 @@ Overall status: **PASS**
 
 | Signal | Value |
 |---|---|
-| Latest published | 2026-12-01T00:00:00+00:00 |
+| Latest published | 2026-08-01T00:00:00+00:00 |
 | Oldest published | 2026-02-12T00:00:00+00:00 |
 | Stale rows | 0 |
 | Invalid date rows | 0 |
-| Total rows | 100 |
+| Total rows | 24 |
 | Freshness status | PASS |

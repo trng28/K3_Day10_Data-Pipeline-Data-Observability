@@ -55,7 +55,9 @@ def main() -> None:
         corrupted_df, settings, settings.paths.corrupted_freshness_report
     )
 
-    repaired_df = build_clean_dataframe(load_raw_records(settings.paths.raw_records_json), now_utc())
+    repaired_df = build_clean_dataframe(
+        load_raw_records(settings.paths.raw_records_json)[: settings.max_results], now_utc()
+    )
     write_csv(repaired_df, settings.paths.repaired_clean_csv)
     write_json(settings.paths.repaired_clean_json, repaired_df.to_dict(orient="records"))
     repaired_index = LocalEmbeddingIndex.build(

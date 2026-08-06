@@ -84,8 +84,8 @@ flowchart TB
 
 | Thành phần | Cấu hình trong source |
 | --- | --- |
-| LLM provider mặc định | `gemini` |
-| LLM mặc định | `gemini-2.5-flash` |
+| LLM provider mặc định | `openai` |
+| LLM mặc định | `gpt-4o-mini` |
 | LLM temperature | `0.0` cho agent, LLM judge và Ragas |
 | Provider hỗ trợ | Gemini, OpenAI, Anthropic, OpenRouter, Ollama, custom OpenAI-compatible |
 | Embedding model | `sentence-transformers/all-MiniLM-L6-v2` |
@@ -116,7 +116,3 @@ flowchart TB
 Data quality gồm 6 checks: corpus không rỗng, `paper_id` không null, `paper_id` duy nhất, title không null, summary tối thiểu 80 ký tự và `age_days` không vượt 180 ngày. Freshness report theo dõi ngày mới nhất/cũ nhất, số dòng stale, số ngày không hợp lệ và trạng thái `is_fresh`.
 
 Artifacts được tách theo các lớp `data/raw`, `data/clean`, `data/embeddings`, `data/chroma`, `data/eval`, `data/results`, `data/quality`, và `data/reports`.
-
-## 6. Phần chưa hoàn thiện trong source
-
-`src/ingestion/corruption.py` và `src/pipelines/corruption_flow.py` vẫn là bài tập `TODO(student)` và đang ném `NotImplementedError`. Vì vậy nhánh dự kiến **corrupt → rebuild index → evaluate → quality/freshness → repair → rebuild → re-evaluate → compare** chưa chạy end-to-end trong source hiện tại, dù config, đường dẫn output và ba Chroma collections đã được khai báo sẵn.

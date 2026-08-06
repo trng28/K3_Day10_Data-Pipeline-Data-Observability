@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import {
   Activity, ArrowDownRight, ArrowRight, ArrowUpRight, Check, CircleDot,
-  Database, FlaskConical, Gauge, LoaderCircle, Play, RefreshCw, Save,
-  TerminalSquare, Zap,
+  BookOpen, Database, FlaskConical, Gauge, LoaderCircle, MessageCircle, Play,
+  RefreshCw, Save, Send, TerminalSquare, Zap,
 } from 'lucide-react'
 
 type MetricSet = {
@@ -51,6 +51,7 @@ function App() {
   const [consoleOpen, setConsoleOpen] = useState(false)
   const [consoleText, setConsoleText] = useState('Ready. Select a pipeline step to run.')
   const [toast, setToast] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<'pipeline' | 'chat'>('pipeline')
 
   const load = async () => {
     const response = await fetch('/api/dashboard')
@@ -61,6 +62,10 @@ function App() {
   }
 
   useEffect(() => { load().catch(error => setConsoleText(String(error))) }, [])
+  useEffect(() => {
+    const consoleElement = document.querySelector('.compact-console pre')
+    if (consoleElement) consoleElement.scrollTop = consoleElement.scrollHeight
+  }, [consoleText])
   const notify = (message: string) => {
     setToast(message)
     window.setTimeout(() => setToast(null), 2400)
@@ -80,13 +85,30 @@ function App() {
     setConsoleText(`Starting ${step}…`)
     try {
       const response = await fetch(`/api/run/${step}`, { method: 'POST' })
-      const payload = await response.json()
-      setConsoleText(payload.output || payload.error || 'Completed.')
-      if (payload.dashboard) {
-        setData(payload.dashboard)
-        setConfig(payload.dashboard.config)
+      if (!response.ok || !response.body) throw new Error(`${step} failed to start`)
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      let buffer = ''
+      let pipelineOk = false
+      while (true) {
+        const {value, done} = await reader.read()
+        buffer += decoder.decode(value || new Uint8Array(), {stream: !done})
+        const lines = buffer.split('\n')
+        buffer = lines.pop() ?? ''
+        for (const line of lines) {
+          if (!line.trim()) continue
+          const event = JSON.parse(line)
+          if (event.type === 'step_start') setConsoleText(current => `${current}\n\n━━ ${String(event.step).toUpperCase()} ━━`)
+          if (event.type === 'log') setConsoleText(current => `${current}\n${event.message}`)
+          if (event.type === 'step_end') setConsoleText(current => `${current}\n${event.ok ? '✓' : '✕'} ${event.step} ${event.ok ? 'completed' : 'failed'}`)
+          if (event.type === 'complete') {
+            pipelineOk = event.ok
+            if (event.dashboard) { setData(event.dashboard); setConfig(event.dashboard.config) }
+          }
+        }
+        if (done) break
       }
-      if (!response.ok) throw new Error(payload.error || `${step} failed`)
+      if (!pipelineOk) throw new Error(`${step} failed`)
       notify(`${step} completed`)
     } catch (error) {
       setConsoleText(current => `${current}\n\nERROR: ${String(error)}`)
@@ -101,6 +123,7 @@ function App() {
   return <div className="compact-app">
     <header className="compact-header">
       <div className="compact-brand"><span><Activity size={18}/></span><div><b>DataFlow</b><small>Pipeline Observatory</small></div></div>
+      <nav className="app-tabs"><button className={activeTab === 'pipeline' ? 'active' : ''} onClick={() => setActiveTab('pipeline')}><Activity/>Pipeline</button><button className={activeTab === 'chat' ? 'active' : ''} onClick={() => setActiveTab('chat')}><MessageCircle/>RAG Chat</button></nav>
       <div className="header-summary">
         <span><Database/> {data.summary.rawRecords} raw</span>
         <span><Gauge/> {pct(baseline?.metrics?.retrieval_hit_rate)} hit rate</span>
@@ -110,6 +133,7 @@ function App() {
     </header>
 
     <main className="compact-main">
+      {activeTab === 'pipeline' ? <>
       <div className="page-title"><div><h1>Pipeline workspace</h1><p>Configure, run and compare the complete data flow.</p></div><span>Python 3.13 · React UI</span></div>
 
       <section className="workspace-grid">
@@ -132,9 +156,42 @@ function App() {
         <div className="compact-states">{data.states.map(state => <StateCard key={state.name} state={state} baseline={baseline}/>)}</div>
         <MetricTable states={data.states}/>
       </section>
+      </> : <ChatPanel ready={data.steps.baseline}/>} 
     </main>
     {toast && <div className="toast"><Check/>{toast}</div>}
   </div>
+}
+
+type ChatMessage = { role: 'user' | 'assistant'; text: string; titles?: string[]; docIds?: string[] }
+
+function ChatPanel({ready}: {ready: boolean}) {
+  const [question, setQuestion] = useState('')
+  const [sending, setSending] = useState(false)
+  const [messages, setMessages] = useState<ChatMessage[]>([{
+    role: 'assistant',
+    text: ready ? 'Ask a question about the papers in the baseline corpus.' : 'Run the baseline step before using RAG Chat.',
+  }])
+  const submit = async () => {
+    const value = question.trim()
+    if (!value || sending || !ready) return
+    setMessages(current => [...current, {role: 'user', text: value}])
+    setQuestion(''); setSending(true)
+    try {
+      const response = await fetch('/api/chat', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: value})})
+      const payload = await response.json()
+      if (!response.ok) throw new Error(payload.error)
+      setMessages(current => [...current, {role: 'assistant', text: payload.answer, titles: payload.retrievedTitles, docIds: payload.retrievedDocIds}])
+    } catch (error) {
+      setMessages(current => [...current, {role: 'assistant', text: `Chat error: ${String(error)}`}])
+    } finally { setSending(false) }
+  }
+  return <section className="chat-workspace">
+    <div className="chat-heading"><div><small>BASELINE CORPUS</small><h1>RAG Chat</h1><p>Answers are grounded in the indexed Crossref papers.</p></div><span className={ready ? 'ready' : ''}><CircleDot/>{ready ? 'Index ready' : 'Index required'}</span></div>
+    <div className="chat-shell">
+      <div className="chat-messages">{messages.map((message, index) => <div key={index} className={`chat-message ${message.role}`}><div className="chat-avatar">{message.role === 'user' ? 'You' : <MessageCircle/>}</div><div><p>{message.text}</p>{message.titles?.length ? <details><summary><BookOpen/>Sources ({message.titles.length})</summary>{message.titles.map((title, sourceIndex) => <span key={`${title}-${sourceIndex}`}><b>{sourceIndex + 1}</b><i>{title}</i><code>{message.docIds?.[sourceIndex]}</code></span>)}</details> : null}</div></div>)}{sending && <div className="chat-message assistant"><div className="chat-avatar"><LoaderCircle className="spin"/></div><div><p>Searching the corpus…</p></div></div>}</div>
+      <div className="chat-input"><textarea disabled={!ready || sending} value={question} onChange={e => setQuestion(e.target.value)} onKeyDown={e => {if (e.key === 'Enter' && !e.shiftKey) {e.preventDefault(); submit()}}} placeholder="Ask about authors, publication dates, categories or paper summaries…"/><button disabled={!ready || sending || !question.trim()} onClick={submit}><Send/></button><small>Enter to send · Shift + Enter for a new line</small></div>
+    </div>
+  </section>
 }
 
 function ConfigPanel({config, setConfig, onSave}: {config: Config; setConfig: (config: Config) => void; onSave: () => void}) {

@@ -48,6 +48,18 @@ class LocalEmbeddingIndex:
         self.documents_by_title = {document["title"].lower(): document for document in documents}
 
     @staticmethod
+    def _metadata_value(value: Any) -> str | int | float | bool:
+        """Return a Chroma-safe scalar while preserving legitimate zero/false values."""
+        try:
+            if pd.isna(value):
+                return ""
+        except (TypeError, ValueError):
+            pass
+        if isinstance(value, (str, int, float, bool)):
+            return value
+        return str(value)
+
+    @staticmethod
     def _build_documents(df: pd.DataFrame) -> list[dict[str, Any]]:
         records = df.to_dict(orient="records")
         documents: list[dict[str, Any]] = []
@@ -59,14 +71,11 @@ class LocalEmbeddingIndex:
                     "title": row["title"],
                     "content": row["text_for_embedding"],
                     "metadata": {
-                        "paper_id": row["paper_id"],
-                        "title": row["title"],
-                        "published": row["published"],
-                        "authors_joined": row["authors_joined"],
-                        "categories_joined": row["categories_joined"],
-                        "summary": row["summary"],
-                        "abs_url": row["abs_url"],
-                        "pdf_url": row["pdf_url"],
+                        key: LocalEmbeddingIndex._metadata_value(row.get(key, ""))
+                        for key in (
+                            "paper_id", "title", "published", "authors_joined",
+                            "categories_joined", "summary", "abs_url", "pdf_url",
+                        )
                     },
                 }
             )

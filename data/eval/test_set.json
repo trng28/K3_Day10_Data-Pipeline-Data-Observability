@@ -1,164 +1,218 @@
 [
   {
-    "id": "q1",
+    "id": "eval-01-summary",
     "question_type": "summary",
-    "question": "What is the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents' about?",
-    "ground_truth": "ABSTRACT As tool repositories for Large Language Model (LLM) agents grow from dozens to hundreds of endpoints, flat retrieval paradigms that treat the repository as an unstructured list suffer from context overload, cross\u2010domain semantic collision and degraded selection accuracy. We propose Hi\u2010RAG, a Hierarchical Retrieval\u2010Augmented Generation framework that exploits the Type Service Tool structure of the Model Context Protocol (MCP) via a principled coarse\u2010to\u2010fine pipeline. Stage 1 applies a Tool\u2010as\u2010Proxy hybrid retrieval strategy (BM25 sparse retrieval combined with dense bi\u2010encoder search, fused via Weighted Reciprocal Rank Fusion) to identify candidate services efficiently. Stage 2 performs type\u2010aware re\u2010ranking over a local heterogeneous graph, integrating a domain\u2010level gating mechanism with contextualised tool attention for precise service scoring. We further introduce MCPBench , the first benchmark for hierarchical tool selection, comprising 201 tools across 40 real\u2010enterprise services\u201423% of queries require multi\u2010service reasoning. Experiments across five LLMs show Hi\u2010RAG improves Top\u20101 accuracy by up to 7.5% (single\u2010service) and 10.0% (multi\u2010service) over Flat\u2010RAG, while reducing token consumption by up to 89% against full\u2010context injection. Comparisons with a strong late\u2010interaction baseline (ColBERT\u2010RAG) further confirm the superiority of Hi\u2010RAG. Zero\u2010shot evaluation on ToolLLM (16,464 tools) confirms scalability, and formal analyses establish context growth with respect to repository size.",
+    "question": "What is the main point of the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\"?",
+    "ground_truth": "ABSTRACT As tool repositories for Large Language Model (LLM) agents grow from dozens to hundreds of endpoints, flat retrieval paradigms that treat the repository as an unstructured list suffer from context overload, cross\u2010domain semantic collision and degraded selection accuracy.",
     "ground_truth_doc_ids": [
       "10.1111/exsy.70341"
     ]
   },
   {
-    "id": "q2",
-    "question_type": "date",
-    "question": "When was the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents' published?",
-    "ground_truth": "2026-08-01",
-    "ground_truth_doc_ids": [
-      "10.1111/exsy.70341"
-    ]
-  },
-  {
-    "id": "q3",
+    "id": "eval-01-authors",
     "question_type": "authors",
-    "question": "Who authored the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents'?",
+    "question": "Who are the authors of the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\"?",
     "ground_truth": "Wei Tian, Yuhao Zhou",
     "ground_truth_doc_ids": [
       "10.1111/exsy.70341"
     ]
   },
   {
-    "id": "q4",
-    "question_type": "summary",
-    "question": "What is the paper 'Does retrieval-augmented generation impact medical students\u2019 perceptions of large language models? (Preprint)' about?",
-    "ground_truth": "BACKGROUND There is evidence of rapid adoption of large language models (LLMs) in undergraduate medical education, with medical students using it to support their learning. This raises concerns particularly around the accuracy of LLM-generated information students are learning. Retrieval-augmented generation (RAG), which grounds a LLM in curated materials, may be a strategy to improve their accuracy. OBJECTIVE This study investigates if grounding LLM outputs in verifiable sources using RAG impacts trust and perceived usability amongst medical students. METHODS In a four-month qualitative study, second-year medical students at Bristol Medical School used a RAG-enabled LLM (NotebookLM) to help them learn course content. Following this, their perspectives were explored using a focus group and survey was. Qualitative data was analysed using thematic analysis and was supplemented by Likert scale data. RESULTS RAG-based LLMs were perceived as more reliable than standard LLM responses mainly due to the transparency of and control over information sources. The system functioned as an accessible, on-demand learning resource, improving efficiency and supporting self-directed study. Students continued to use strategies to cross check generated information. They demonstrated some awareness of ethical concerns, mostly around the environmental impact of LLMs and data privacy. CONCLUSIONS These findings suggest that RAG may enhance students\u2019 trust in LLM outputs while maintaining their benefit as a flexible \u2018study partner\u2019. It highlights RAG as a strategy that educators can use to support students who use LLMs in the context of increasing. However, the impact of RAG-based LLMs over a longer period and on learning outcomes requires further evaluation.",
-    "ground_truth_doc_ids": [
-      "10.2196/preprints.106157"
-    ]
-  },
-  {
-    "id": "q5",
+    "id": "eval-01-date",
     "question_type": "date",
-    "question": "When was the paper 'Does retrieval-augmented generation impact medical students\u2019 perceptions of large language models? (Preprint)' published?",
-    "ground_truth": "2026-07-03",
+    "question": "When was the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\" published?",
+    "ground_truth": "2026-08-01",
     "ground_truth_doc_ids": [
-      "10.2196/preprints.106157"
+      "10.1111/exsy.70341"
     ]
   },
   {
-    "id": "q6",
+    "id": "eval-01-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\"?",
+    "ground_truth": "No categories listed",
+    "ground_truth_doc_ids": [
+      "10.1111/exsy.70341"
+    ]
+  },
+  {
+    "id": "eval-02-summary",
+    "question_type": "summary",
+    "question": "What is the main point of the paper \"An Agentic AI System for Roof Design Compliance Using Computer Vision, Retrieval-Augmented Generation and Large Language Models\"?",
+    "ground_truth": "Designers, engineers, and building officials face increasing pressure to accelerate and improve the accuracy of design review for buildings and infrastructure.",
+    "ground_truth_doc_ids": [
+      "10.3390/buildings16132637"
+    ]
+  },
+  {
+    "id": "eval-02-authors",
     "question_type": "authors",
-    "question": "Who authored the paper 'Does retrieval-augmented generation impact medical students\u2019 perceptions of large language models? (Preprint)'?",
-    "ground_truth": "Rohin Athavale, Alexander Cresswell, Alice Huffman",
+    "question": "Who are the authors of the paper \"An Agentic AI System for Roof Design Compliance Using Computer Vision, Retrieval-Augmented Generation and Large Language Models\"?",
+    "ground_truth": "Nawari O. Nawari, Oluwatoyin O. Lawal",
     "ground_truth_doc_ids": [
-      "10.2196/preprints.106157"
+      "10.3390/buildings16132637"
     ]
   },
   {
-    "id": "q7",
-    "question_type": "summary",
-    "question": "What is the paper 'Retrieval-Augmented Generation (RAG), Generative AI, and Agentic AI Governance: An Integrated Enterprise Governance Prioritization Architecture' about?",
-    "ground_truth": "Abstract Enterprise adoption of artificial intelligence (AI) systems, including Generative AI (GenAI), Retrieval-Augmented Generation (RAG), and agentic AI, is advancing faster than many organizations can adapt their governance, audit, cybersecurity, and executive oversight practices. This paper develops a proposed integrated AI governance prioritization architecture using a design-science research approach, supported by exploratory platform-risk analysis, a reproducible platform-risk dataset, a Monte Carlo robustness assessment, a framework coverage matrix, a Governance Priority Score (GPS)-based demonstration, and a public-document relevance assessment. The primary contribution is an integrated governance decision-support architecture that uses the Enterprise AI Platform Taxonomy (EAPT) to estimate platform burden, the Enterprise AI Risk Taxonomy (EART) to organize governance-risk exposure, the Enterprise AI Governance Maturity Model (EAGM) to represent organizational readiness, and the Integrated Agentic AI Governance Framework (IAGF) to identify agentic AI oversight requirements within a unified workflow. These components are operationally connected through GPS, which links platform burden, governancerisk gaps, organizational readiness, agentic runtime-control needs, and executive decision support. The proposed architecture draws upon NIST AI RMF, NIST AI 600-1, ISO/IEC 42001, COBIT, OWASP LLM Top 10, MITRE ATLAS, the EU AI Act, and related AI governance literature. A rubric-based analytical dataset covering 19 enterprise AI platforms evaluates each platform across eight subdimensions, with final platform-risk scores computed as the arithmetic mean of data access scope, operational autonomy, tool/API integration breadth, external connectivity, governance burden, cybersecurity exposure, adoption and shadow-AI risk, and supply-chain integrity. TThe expanded scoring method produces high rank stability relative to the original final-score dataset, with Spearman\u2019s \u03c1 = 0.996, and remains directionally stable under coding-uncertainty stress testing; these results are interpreted only as internal coding stability and robustness, not external validation. Public evidence from U.S. government agencies, universities, healthcare systems, and financial institutions is used to assess architecture relevance and observability, not to claim organizational effectiveness. The paper contributes a bounded design-science foundation for future inter-rater reliability testing, Delphi expert validation, organizational pilots, psychometric evaluation, and dashboard usability assessment.",
-    "ground_truth_doc_ids": [
-      "10.21203/rs.3.rs-10012178/v1"
-    ]
-  },
-  {
-    "id": "q8",
+    "id": "eval-02-date",
     "question_type": "date",
-    "question": "When was the paper 'Retrieval-Augmented Generation (RAG), Generative AI, and Agentic AI Governance: An Integrated Enterprise Governance Prioritization Architecture' published?",
+    "question": "When was the paper \"An Agentic AI System for Roof Design Compliance Using Computer Vision, Retrieval-Augmented Generation and Large Language Models\" published?",
+    "ground_truth": "2026-07-02",
+    "ground_truth_doc_ids": [
+      "10.3390/buildings16132637"
+    ]
+  },
+  {
+    "id": "eval-02-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"An Agentic AI System for Roof Design Compliance Using Computer Vision, Retrieval-Augmented Generation and Large Language Models\"?",
+    "ground_truth": "No categories listed",
+    "ground_truth_doc_ids": [
+      "10.3390/buildings16132637"
+    ]
+  },
+  {
+    "id": "eval-03-summary",
+    "question_type": "summary",
+    "question": "What is the main point of the paper \"\u0421\u043d\u0438\u0436\u0435\u043d\u0438\u0435 \u0440\u0438\u0441\u043a\u043e\u0432 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f LLM (Large Language Model) \u0432 \u0441\u0444\u0435\u0440\u0435 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0439 \u043c\u043e\u043b\u043e\u0447\u043d\u043e\u0439 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 RAG (Retrieval-Augmented Generation)\"?",
+    "ground_truth": "\u0412 \u0441\u0442\u0430\u0442\u044c\u0435 \u043f\u0440\u043e\u0432\u0435\u0434\u0435\u043d\u043e \u0438\u0441\u0441\u043b\u0435\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0435\u0439 \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u044f \u0440\u0438\u0441\u043a\u043e\u0432 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f LLM (Large Language Model) \u0432 \u0441\u0444\u0435\u0440\u0435 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0439 \u043c\u043e\u043b\u043e\u0447\u043d\u043e\u0439 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 RAG (Retrieval-Augmented Generation) \u0432 \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445.",
+    "ground_truth_doc_ids": [
+      "10.47576/2949-1894.2026.7.7.023"
+    ]
+  },
+  {
+    "id": "eval-03-authors",
+    "question_type": "authors",
+    "question": "Who are the authors of the paper \"\u0421\u043d\u0438\u0436\u0435\u043d\u0438\u0435 \u0440\u0438\u0441\u043a\u043e\u0432 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f LLM (Large Language Model) \u0432 \u0441\u0444\u0435\u0440\u0435 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0439 \u043c\u043e\u043b\u043e\u0447\u043d\u043e\u0439 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 RAG (Retrieval-Augmented Generation)\"?",
+    "ground_truth": "\u0418.\u0412. \u0415\u0440\u043c\u0430\u043a\u043e\u0432, \u0412.\u0412. \u0424\u0438\u043b\u0430\u0442\u043e\u0432",
+    "ground_truth_doc_ids": [
+      "10.47576/2949-1894.2026.7.7.023"
+    ]
+  },
+  {
+    "id": "eval-03-date",
+    "question_type": "date",
+    "question": "When was the paper \"\u0421\u043d\u0438\u0436\u0435\u043d\u0438\u0435 \u0440\u0438\u0441\u043a\u043e\u0432 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f LLM (Large Language Model) \u0432 \u0441\u0444\u0435\u0440\u0435 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0439 \u043c\u043e\u043b\u043e\u0447\u043d\u043e\u0439 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 RAG (Retrieval-Augmented Generation)\" published?",
     "ground_truth": "2026-06-15",
     "ground_truth_doc_ids": [
-      "10.21203/rs.3.rs-10012178/v1"
+      "10.47576/2949-1894.2026.7.7.023"
     ]
   },
   {
-    "id": "q9",
-    "question_type": "authors",
-    "question": "Who authored the paper 'Retrieval-Augmented Generation (RAG), Generative AI, and Agentic AI Governance: An Integrated Enterprise Governance Prioritization Architecture'?",
-    "ground_truth": "Audrey Rah, Sven Hahues",
+    "id": "eval-03-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"\u0421\u043d\u0438\u0436\u0435\u043d\u0438\u0435 \u0440\u0438\u0441\u043a\u043e\u0432 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f LLM (Large Language Model) \u0432 \u0441\u0444\u0435\u0440\u0435 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0439 \u043c\u043e\u043b\u043e\u0447\u043d\u043e\u0439 \u043f\u0440\u043e\u043c\u044b\u0448\u043b\u0435\u043d\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u043e\u0441\u043d\u043e\u0432\u0435 \u043f\u043e\u0434\u0445\u043e\u0434\u0430 RAG (Retrieval-Augmented Generation)\"?",
+    "ground_truth": "No categories listed",
     "ground_truth_doc_ids": [
-      "10.21203/rs.3.rs-10012178/v1"
+      "10.47576/2949-1894.2026.7.7.023"
     ]
   },
   {
-    "id": "q10",
+    "id": "eval-04-summary",
     "question_type": "summary",
-    "question": "What is the paper 'Hallucination in Large Language Models and Retrieval-Augmented Generation: Mechanisms, Mitigation, and Evaluation' about?",
-    "ground_truth": "Large language models have demonstrated strong generative capability in question answering, dialogue, and other knowledge-intensive tasks. However, their outputs remain vulnerable to hallucination, including factual errors, unsupported claims, spurious citations, and distorted reasoning. Retrieval-augmented generation (RAG) has been proposed as a practical remedy because it supplements parametric knowledge with external evidence retrieved at inference time. Yet RAG does not guarantee truthfulness or attribution by default. Errors may arise during query formulation, document retrieval, evidence aggregation, and answer grounding. This paper reviews the relationship between hallucination and RAG from three perspectives: mechanism, mitigation, and evaluation. First, the major causes of hallucination in both vanilla LLMs and RAG-enhanced systems are analyzed. Second, the principal mitigation strategies are organized into retrieval optimization, evidence-grounded generation, and post-generation verification. Third, the main evaluation dimensions are examined, including factuality, faithfulness, attribution quality, and retrieval relevance. It is argued that RAG should not be treated as a complete solution to hallucination. Its value lies in enabling externally grounded generation, but its effectiveness depends on the reliability of retrieval, the fidelity of evidence use, and the rigor of evaluation. Future work should prioritize attribution-aware generation, conflict-sensitive reasoning, and unified evaluation protocols for trustworthy LLM systems.",
+    "question": "What is the main point of the paper \"Adapting Large Language Models for Low-Resource Regulated Domains: A Fine-Tuning and Retrieval-Augmented Generation Approach to Insurance Information Delivery in Kenya\"?",
+    "ground_truth": "Abstract Background.",
     "ground_truth_doc_ids": [
-      "10.54254/2753-8818/2026.dl34055"
+      "10.21203/rs.3.rs-9770645/v1"
     ]
   },
   {
-    "id": "q11",
-    "question_type": "date",
-    "question": "When was the paper 'Hallucination in Large Language Models and Retrieval-Augmented Generation: Mechanisms, Mitigation, and Evaluation' published?",
-    "ground_truth": "2026-06-01",
-    "ground_truth_doc_ids": [
-      "10.54254/2753-8818/2026.dl34055"
-    ]
-  },
-  {
-    "id": "q12",
+    "id": "eval-04-authors",
     "question_type": "authors",
-    "question": "Who authored the paper 'Hallucination in Large Language Models and Retrieval-Augmented Generation: Mechanisms, Mitigation, and Evaluation'?",
-    "ground_truth": "Haopeng Yang",
+    "question": "Who are the authors of the paper \"Adapting Large Language Models for Low-Resource Regulated Domains: A Fine-Tuning and Retrieval-Augmented Generation Approach to Insurance Information Delivery in Kenya\"?",
+    "ground_truth": "AMOS MBEKI NYAGAR",
     "ground_truth_doc_ids": [
-      "10.54254/2753-8818/2026.dl34055"
+      "10.21203/rs.3.rs-9770645/v1"
     ]
   },
   {
-    "id": "q13",
+    "id": "eval-04-date",
+    "question_type": "date",
+    "question": "When was the paper \"Adapting Large Language Models for Low-Resource Regulated Domains: A Fine-Tuning and Retrieval-Augmented Generation Approach to Insurance Information Delivery in Kenya\" published?",
+    "ground_truth": "2026-05-22",
+    "ground_truth_doc_ids": [
+      "10.21203/rs.3.rs-9770645/v1"
+    ]
+  },
+  {
+    "id": "eval-04-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"Adapting Large Language Models for Low-Resource Regulated Domains: A Fine-Tuning and Retrieval-Augmented Generation Approach to Insurance Information Delivery in Kenya\"?",
+    "ground_truth": "No categories listed",
+    "ground_truth_doc_ids": [
+      "10.21203/rs.3.rs-9770645/v1"
+    ]
+  },
+  {
+    "id": "eval-05-summary",
     "question_type": "summary",
-    "question": "What is the paper 'An Exploratory Study of Agentic Retrieval Augmented Generation for Mental Health Oriented Language Models' about?",
-    "ground_truth": "Mental health conditions affect over one billion individuals globally and remain challenging to assess accurately due to fragmented clinical data and subjective evaluation methods. Mental health support systems increasingly rely on large language models (LLMs) due to their capabilities in natural language understanding and response generation. While retrieval augmented generation (RAG) and agentic frameworks have improved grounded generation in several domains, there is limited understanding of how such approaches affect response quality in mental health related tasks. In particular, the impact of structured context management and autonomous refinement on clinical relevance, empathy, completeness, and safety remains underexplored. In this study, we investigate the effects of agentic RAG on the performance of multiple mental health oriented language models. We adopt a common pipeline configuration that integrates patient dialogue, structured patient history, and externally retrieved clinical knowledge. The pipeline consists of coordinated stages for patient context retrieval, context augmentation, and response generation with autonomous evaluation and iterative refinement. We conduct empirical evaluations across four mental health models under this pipeline and analyze their performance in terms of medical accuracy, empathy, completeness, safety, and overall response quality. Our results show consistent trends toward improved responses when structured context handling and agentic refinement are applied, indicating that these components influence model behavior independent of architecture. This work provides insight into how agentic RAG influences model outputs in mental health applications and highlights the importance of context engineering and quality control in LLM based support systems. These findings indicate that Agentic Context Engineering (ACE) may contribute to improved reasoning depth, contextual alignment, and patient centered response quality across diverse models. However, despite the improvements observed, the framework remains an early step toward more reliable AI assisted mental health assessment. Continued research is needed to refine model architectures, optimize prompt engineering, and expand evaluation across broader and more diverse clinical contexts to ensure safety, consistency, and real world applicability.",
+    "question": "What is the main point of the paper \"Retrieval-Augmented Large Language Model Agents for Automated Scientific Literature Review Generation\"?",
+    "ground_truth": "This study investigates a method that integrates retrieval-augmented mechanisms into large language model agents for scientific literature review generation.",
     "ground_truth_doc_ids": [
-      "10.32473/flairs.39.1.141782"
+      "10.20944/preprints202604.0339.v1"
     ]
   },
   {
-    "id": "q14",
-    "question_type": "date",
-    "question": "When was the paper 'An Exploratory Study of Agentic Retrieval Augmented Generation for Mental Health Oriented Language Models' published?",
-    "ground_truth": "2026-05-06",
-    "ground_truth_doc_ids": [
-      "10.32473/flairs.39.1.141782"
-    ]
-  },
-  {
-    "id": "q15",
+    "id": "eval-05-authors",
     "question_type": "authors",
-    "question": "Who authored the paper 'An Exploratory Study of Agentic Retrieval Augmented Generation for Mental Health Oriented Language Models'?",
-    "ground_truth": "Khoa Pham, Jiacheng Li, Hassan S. Al Khatib, Shahram Rahimi, Noorbakhsh Amiri Golilarz, Andy Perkins",
+    "question": "Who are the authors of the paper \"Retrieval-Augmented Large Language Model Agents for Automated Scientific Literature Review Generation\"?",
+    "ground_truth": "Ruotong Wang, Nyutian Long, Shunqi Liu, Yuxi Wang, Zhen Qi, Huajun Zhang",
     "ground_truth_doc_ids": [
-      "10.32473/flairs.39.1.141782"
+      "10.20944/preprints202604.0339.v1"
     ]
   },
   {
-    "id": "q16",
+    "id": "eval-05-date",
+    "question_type": "date",
+    "question": "When was the paper \"Retrieval-Augmented Large Language Model Agents for Automated Scientific Literature Review Generation\" published?",
+    "ground_truth": "2026-04-06",
+    "ground_truth_doc_ids": [
+      "10.20944/preprints202604.0339.v1"
+    ]
+  },
+  {
+    "id": "eval-05-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"Retrieval-Augmented Large Language Model Agents for Automated Scientific Literature Review Generation\"?",
+    "ground_truth": "No categories listed",
+    "ground_truth_doc_ids": [
+      "10.20944/preprints202604.0339.v1"
+    ]
+  },
+  {
+    "id": "eval-06-summary",
     "question_type": "summary",
-    "question": "What is the paper 'A Survey of (Deep RAG) Deep Retrieval Augmented Generation and Reasoning in Large Language Models' about?",
-    "ground_truth": "Retrieval-Augmented Generation (RAG) has emerged as a powerful paradigm for combining large language models with external knowledge sources to produce accurate, context-aware, and verifiable outputs. In this survey, we focus on an advanced instantiation of this paradigm, referred to as Deep RAG, which integrates reasoning, memory, and multi-step planning into end-to-end research workflows. We provide a structured overview of Deep RAG systems, covering key components such as query planning, information retrieval, memory management, and answer generation, as well as practical optimization techniques including supervised fine-tuning, iterative self-evolving, and agentic reinforcement learning. We analyze different planning strategies, adaptive retrieval mechanisms, conflict resolution methods, and multimodal synthesis, highlighting both their strengths and limitations. By categorizing approaches according to workflow types, reasoning strategies, and optimization paradigms, we clarify the current landscape and identify open challenges for evaluation, scalability, and multimodal reasoning. This survey aims to provide a comprehensive roadmap for designing flexible, reliable, and intelligent Deep RAG systems capable of performing complex, real-world research tasks with minimal human supervision.",
+    "question": "What is the main point of the paper \"Clinical Large Language Models with Multi-Stage Instruction Tuning and Advanced Retrieval-Augmented Generation\"?",
+    "ground_truth": "The demand for efficient and accurate Clinical Decision Support Systems (CDSS) is growing rapidly, driven by the escalating volume of medical data.",
     "ground_truth_doc_ids": [
-      "10.36227/techrxiv.177272838.89432844/v1"
+      "10.20944/preprints202602.0996.v1"
     ]
   },
   {
-    "id": "q17",
-    "question_type": "date",
-    "question": "When was the paper 'A Survey of (Deep RAG) Deep Retrieval Augmented Generation and Reasoning in Large Language Models' published?",
-    "ground_truth": "2026-03-05",
-    "ground_truth_doc_ids": [
-      "10.36227/techrxiv.177272838.89432844/v1"
-    ]
-  },
-  {
-    "id": "q18",
+    "id": "eval-06-authors",
     "question_type": "authors",
-    "question": "Who authored the paper 'A Survey of (Deep RAG) Deep Retrieval Augmented Generation and Reasoning in Large Language Models'?",
-    "ground_truth": "Lihui Liu",
+    "question": "Who are the authors of the paper \"Clinical Large Language Models with Multi-Stage Instruction Tuning and Advanced Retrieval-Augmented Generation\"?",
+    "ground_truth": "Donald Martin, Blake Bowman",
     "ground_truth_doc_ids": [
-      "10.36227/techrxiv.177272838.89432844/v1"
+      "10.20944/preprints202602.0996.v1"
+    ]
+  },
+  {
+    "id": "eval-06-date",
+    "question_type": "date",
+    "question": "When was the paper \"Clinical Large Language Models with Multi-Stage Instruction Tuning and Advanced Retrieval-Augmented Generation\" published?",
+    "ground_truth": "2026-02-12",
+    "ground_truth_doc_ids": [
+      "10.20944/preprints202602.0996.v1"
+    ]
+  },
+  {
+    "id": "eval-06-categories",
+    "question_type": "categories",
+    "question": "What categories are associated with the paper \"Clinical Large Language Models with Multi-Stage Instruction Tuning and Advanced Retrieval-Augmented Generation\"?",
+    "ground_truth": "No categories listed",
+    "ground_truth_doc_ids": [
+      "10.20944/preprints202602.0996.v1"
     ]
   }
 ]

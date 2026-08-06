@@ -1,14 +1,14 @@
 [
   {
-    "question": "What is the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents' about?",
-    "answer": "Agent demo unavailable; baseline artifacts are still valid. Connection error."
+    "question": "What is the main point of the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\"?",
+    "answer": "The paper titled \"Hi\u2010RAG: A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\" presents a framework designed to improve the selection of tools for Large Language Model (LLM) agents as the number of available tools increases. The main points of the paper are as follows:\n\n1. **Problem Addressed**: As tool repositories for LLM agents expand, traditional flat retrieval methods become ineffective due to context overload, semantic collisions, and reduced selection accuracy.\n\n2. **Proposed Solution**: The authors introduce Hi\u2010RAG, a Hierarchical Retrieval-Augmented Generation framework that utilizes a structured approach to tool selection. This involves a two-stage process:\n   - **Stage 1**: A hybrid retrieval strategy that combines sparse retrieval (BM25) with dense bi-encoder search to efficiently identify candidate services.\n   - **Stage 2**: A type-aware re-ranking mechanism that integrates domain-level gating and contextualized tool attention for precise scoring of services.\n\n3. **Benchmarking**: The paper introduces MCPBench, a benchmark for hierarchical tool selection, which includes 201 tools across 40 real enterprise services, highlighting the complexity of queries that require multi-service reasoning.\n\n4. **Results**: Experiments demonstrate that Hi\u2010RAG improves Top-1 accuracy by up to 7.5% for single-service and 10.0% for multi-service scenarios compared to existing methods, while also significantly reducing token consumption.\n\n5. **Scalability**: The framework is shown to be scalable, as confirmed by zero-shot evaluations on a large tool set (ToolLLM).\n\nOverall, Hi\u2010RAG aims to enhance the efficiency and accuracy of tool selection in LLM agents, addressing the challenges posed by growing tool repositories."
   },
   {
-    "question": "When was the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents' published?",
-    "answer": "Agent demo unavailable; baseline artifacts are still valid. Connection error."
+    "question": "Who are the authors of the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\"?",
+    "answer": "The authors of the paper \"Hi\u2010RAG: A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\" are Wei Tian and Yuhao Zhou."
   },
   {
-    "question": "Who authored the paper 'Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents'?",
-    "answer": "Agent demo unavailable; baseline artifacts are still valid. Connection error."
+    "question": "When was the paper \"Hi\u2010 <scp>RAG</scp> : A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\" published?",
+    "answer": "The paper \"Hi\u2010RAG: A Hierarchical Retrieval\u2010Augmented Generation Framework for Scalable and Generalisable Tool Selection in Large Language Model Agents\" was published in 2023."
   }
 ]
