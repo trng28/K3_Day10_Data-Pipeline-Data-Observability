@@ -1,0 +1,9 @@
+{
+  "original_rows": 100,
+  "dropped_latest_count": 3,
+  "blank_summary_count": 2,
+  "noise_injected_count": 2,
+  "blank_title_count": 2,
+  "stale_published_count": 2,
+  "duplicated_rows_count": 2
+}
